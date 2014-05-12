@@ -5,7 +5,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/bookShop</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/bookhouse</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">root</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -14,5 +14,8 @@
 		<property name="hbm2ddl.auto">update</property>
 		<property name="Connection.useUnicode">true </property>
 		<property name="connection.characterEncoding">utf-8</property>
+	
+		<mapping class="edu.nju.bookHouse.model.Customer"/>   
+		<mapping class="edu.nju.bookHouse.model.Bank"/>   
 	</session-factory>
 </hibernate-configuration>

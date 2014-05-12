@@ -12,8 +12,55 @@
            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     
-    <!-- customer起始 -->
-    <bean id="customerBarAction" class="edu.nju.bookshop.action.CustomerBarAction">
+    <!-- actions -->
+    <bean id="customerBarAction" class="edu.nju.bookHouse.action.CustomerBarAction">
 	</bean>
-    
+	
+    <bean id="customerRegisterAction" class="edu.nju.bookHouse.action.CustomerRegisterAction">
+    	<property name="customerService">
+			<ref bean="customerService" />
+		</property>
+	</bean>
+	
+	
+	<!-- services -->
+    <bean id="customerService" class="edu.nju.bookHouse.service.CustomerService">
+    	<property name="bankService">
+			<ref bean="bankService" />
+		</property>
+    	<property name="dateChanger">
+			<ref bean="dateChanger" />
+		</property>
+    	<property name="customerDao">
+			<ref bean="customerDao" />
+		</property>
+	</bean>
+	
+    <bean id="bankService" class="edu.nju.bookHouse.service.BankService">
+    	<property name="bankDao">
+			<ref bean="bankDao" />
+		</property>
+	</bean>
+	
+	
+	<!-- other services -->
+    <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
+	</bean>
+	
+	
+	<!-- DAOs -->
+	<bean id="daoHelper" class="edu.nju.bookHouse.dao.DaoHelper">
+	</bean>
+	
+	<bean id="customerDao" class="edu.nju.bookHouse.dao.CustomerDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="bankDao" class="edu.nju.bookHouse.dao.BankDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
 </beans>

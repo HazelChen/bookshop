@@ -10,6 +10,11 @@
 			<result name="logon">/userBar.jsp</result>
 			<result name="notLogon">/notLogonBar.jsp</result>
 		</action>
+		
+		<action name="register" class="customerRegisterAction">
+			<result name="input">/register.jsp</result>
+			<result name="success">/homepage.jsp</result>
+		</action>
 	</package>
 	
 	
