@@ -8,7 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a class="btn btn-success"><s:property value="user.id" /></a>
-	<a href='<s:url action="userLogout"/>' class="btn btn-success">logout</a>
+		<%String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/images/user\\";
+		%>
+		
+		<a href="#" class="btn btn-primary">
+			<img src="<%=basePath %><s:property value="user.headerUrl" />" />
+			<span><s:property value="customer.username" /></span>
+		</a>
+		
+		<a href='<s:url action="customerLogout"/>' class="btn btn-primary">注销</a>
 </body>
 </html>

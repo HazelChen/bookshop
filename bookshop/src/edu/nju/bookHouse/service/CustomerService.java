@@ -29,7 +29,7 @@ public class CustomerService {
 		}
 	}
 	
-	public void addCustomer(String username, String password, String sex, String address, String birthdayString, String bankId) {
+	public Customer addCustomer(String username, String password, String sex, String address, String birthdayString, String bankId) {
 		Calendar calendar = Calendar.getInstance();
 		Date registerDay = calendar.getTime();
 		
@@ -39,6 +39,15 @@ public class CustomerService {
 		
 		Customer customer = new Customer(username, password, sex, address, birthDay, registerDay, bank);
 		customerDao.add(customer);
+		return customer;
+	}
+	
+	public Customer loginVerify(String username, String password) {
+		Customer customer = customerDao.find(username);
+		if (customer == null || !customer.getPassword().equals(password)) {
+			return null;
+		}
+		return customer;
 	}
 
 	public void setBankService(BankService bankService) {

@@ -20,9 +20,12 @@
     			<div class="col-md-8">
     				<img src="image/logo.png" width=250px height="250px">
     			</div>
+    			<%String failMsg = (String)session.getAttribute("loginError");
+				if (failMsg != null) {%>
+				<span class="error"><%=failMsg%></span><%} %>
     			<div class="col-md-4 pull-right">
-    				<form class="form-signin" role="form" action="userLogin" method="post">
-        				<input type="text" class="form-control input-lg margin-top" name="userID" placeholder="Your username" required autofocus>
+    				<form class="form-signin" role="form" action="customerLogin" method="post">
+        				<input type="text" class="form-control input-lg margin-top" name="username" placeholder="Your username" required autofocus>
         				<input type="password" class="form-control input-lg margin-top" name="password" placeholder="Your password" required>
         				<button class="btn btn-lg btn-primary btn-block margin-top" type="submit">Sign in for BookHouse</button>
       				</form>

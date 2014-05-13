@@ -18,6 +18,9 @@
 	<div class="container">
 		<h1>Join Book House</h1>
 		<h4>The best website to buy books.</h4>
+		<%String failMsg = (String)session.getAttribute("registerError");
+		if (failMsg != null) {%>
+		<span class="error"><%=failMsg%></span><%} %>
 		<form method="post" action="register">
 			<div class="row">
 				<div class="col-md-6">

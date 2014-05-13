@@ -1,5 +1,6 @@
 package edu.nju.bookHouse.action;
 
+import edu.nju.bookHouse.model.Customer;
 import edu.nju.bookHouse.service.CustomerService;
 
 public class CustomerRegisterAction extends BaseAction{
@@ -21,12 +22,11 @@ public class CustomerRegisterAction extends BaseAction{
 			String sex = request.getParameter("sex");
 			String address = request.getParameter("address");
 			String birthdayString = request.getParameter("birthday");
-			String bankId = request.getParameter("bankId");
-			customerService.addCustomer(username, password, sex, address, birthdayString, bankId);
+			String bankId = request.getParameter("bankId"); 
+			Customer customer = customerService.addCustomer(username, password, sex, address, birthdayString, bankId);
+			session.put("customer", customer);
+			return SUCCESS;
 		}
-		
-		session.put("userId", username);
-		return SUCCESS;
 	}
 
 	public void setCustomerService(CustomerService customerService) {

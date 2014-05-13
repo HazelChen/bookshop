@@ -22,6 +22,12 @@
 		</property>
 	</bean>
 	
+    <bean id="customerLoginAction" class="edu.nju.bookHouse.action.CustomerLoginAction">
+    	<property name="customerService">
+			<ref bean="customerService" />
+		</property>
+	</bean>
+	
 	
 	<!-- services -->
     <bean id="customerService" class="edu.nju.bookHouse.service.CustomerService">
