@@ -1,7 +1,11 @@
 package edu.nju.bookHouse.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -34,12 +38,18 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@OneToOne(optional = true, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name = "role")
 	public Role getRole() {
 		return role;
 	}
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	
+	@OneToOne(optional = true, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name = "customerInfo")
 	public CustomerInfo getCustomerInfo() {
 		return customerInfo;
 	}

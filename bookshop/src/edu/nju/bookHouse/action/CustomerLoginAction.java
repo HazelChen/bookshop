@@ -1,19 +1,19 @@
 package edu.nju.bookHouse.action;
 
-import edu.nju.bookHouse.model.Customer;
+import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.service.UserService;
 
 public class CustomerLoginAction extends BaseAction{
 	private static final long serialVersionUID = 8124963048067029840L;
 	
-	private UserService customerService;
+	private UserService userService;
 	
 	@Override
 	public String execute() {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		Customer customer = customerService.loginVerify(username, password);
+		User customer = userService.loginVerify(username, password);
 		
 		if (customer != null) {
 			session.put("customer", customer);
@@ -29,7 +29,7 @@ public class CustomerLoginAction extends BaseAction{
 		return SUCCESS;
 	}
 
-	public void setCustomerService(UserService customerService) {
-		this.customerService = customerService;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 }

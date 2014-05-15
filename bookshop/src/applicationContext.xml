@@ -58,7 +58,7 @@
 	<bean id="daoHelper" class="edu.nju.bookHouse.dao.DaoHelper">
 	</bean>
 	
-	<bean id="userDao" class="edu.nju.bookHouse.dao.userDao">
+	<bean id="userDao" class="edu.nju.bookHouse.dao.UserDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>

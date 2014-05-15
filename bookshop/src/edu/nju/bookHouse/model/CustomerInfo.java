@@ -1,8 +1,6 @@
 package edu.nju.bookHouse.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="customerInfo")
 public class CustomerInfo {
@@ -22,6 +21,8 @@ public class CustomerInfo {
 	private Date registerDay;
 	
 	private Bank bank;
+	
+	private User user;
 	
 //	private Set<Book> booksBought = new HashSet<Book>();
 //	private Set<Book> booksInShoppingCart = new HashSet<Book>();
@@ -87,6 +88,17 @@ public class CustomerInfo {
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
+	
+	@OneToOne(mappedBy = "customerInfo")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 //
 //	public Set<Book> getBooksBought() {
 //		return booksBought;
