@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BookBought {
 	private String id;
-	private Customer customer;
+	private CustomerInfo customer;
 	private Book book;
 	private Date date;
 }

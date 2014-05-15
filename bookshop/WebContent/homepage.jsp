@@ -13,4 +13,4 @@
 <body>
 	<s:include value="navigater.jsp" />
 </body>
-</html>
+</html> 

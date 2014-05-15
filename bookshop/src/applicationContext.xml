@@ -17,28 +17,28 @@
 	</bean>
 	
     <bean id="customerRegisterAction" class="edu.nju.bookHouse.action.CustomerRegisterAction">
-    	<property name="customerService">
-			<ref bean="customerService" />
+    	<property name="userService">
+			<ref bean="userService" />
 		</property>
 	</bean>
 	
     <bean id="customerLoginAction" class="edu.nju.bookHouse.action.CustomerLoginAction">
-    	<property name="customerService">
-			<ref bean="customerService" />
+    	<property name="userService">
+			<ref bean="userService" />
 		</property>
 	</bean>
 	
 	
 	<!-- services -->
-    <bean id="customerService" class="edu.nju.bookHouse.service.CustomerService">
+    <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">
 			<ref bean="bankService" />
 		</property>
     	<property name="dateChanger">
 			<ref bean="dateChanger" />
 		</property>
-    	<property name="customerDao">
-			<ref bean="customerDao" />
+    	<property name="userDao">
+			<ref bean="userDao" />
 		</property>
 	</bean>
 	
@@ -58,7 +58,7 @@
 	<bean id="daoHelper" class="edu.nju.bookHouse.dao.DaoHelper">
 	</bean>
 	
-	<bean id="customerDao" class="edu.nju.bookHouse.dao.CustomerDao">
+	<bean id="userDao" class="edu.nju.bookHouse.dao.userDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>

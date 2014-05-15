@@ -15,7 +15,9 @@
 		<property name="Connection.useUnicode">true </property>
 		<property name="connection.characterEncoding">utf-8</property>
 	
-		<mapping class="edu.nju.bookHouse.model.Customer"/>   
+		<mapping class="edu.nju.bookHouse.model.User"/>   
 		<mapping class="edu.nju.bookHouse.model.Bank"/>   
+		<mapping class="edu.nju.bookHouse.model.Role"/>   
+		<mapping class="edu.nju.bookHouse.model.CustomerInfo"/>   
 	</session-factory>
 </hibernate-configuration>

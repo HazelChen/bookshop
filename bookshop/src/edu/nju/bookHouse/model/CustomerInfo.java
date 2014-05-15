@@ -12,11 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name="customer")
-public class Customer {
-	private String username;
-	private String password;
-	
+@Table(name="customerInfo")
+public class CustomerInfo {
+	private String id;
 	private String gender;
 	private String address;
 	private Date birthday;
@@ -29,11 +27,9 @@ public class Customer {
 //	private Set<Book> booksInShoppingCart = new HashSet<Book>();
 //	private Set<Book> booksCollected = new HashSet<Book>();
 	
-	public Customer(){}
+	public CustomerInfo(){}
 	
-	public Customer(String username, String password, String gender, String address, Date birthDay, Date registerDay, Bank bank) {
-		this.username = username;
-		this.password = password;
+	public CustomerInfo(String gender, String address, Date birthDay, Date registerDay, Bank bank) {
 		this.gender = gender;
 		this.address = address;
 		this.birthday = birthDay;
@@ -42,22 +38,14 @@ public class Customer {
 	}
 
 	@Id
-	public String getUsername() {
-		return username;
+	public String getId() {
+		return id;
 	}
-
-	public void setUsername(String id) {
-		this.username = id;
+	
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
+	
 	public String getGender() {
 		return gender;
 	}

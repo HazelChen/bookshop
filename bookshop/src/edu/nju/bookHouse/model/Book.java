@@ -16,8 +16,8 @@ public class Book {
 	private String description;
 	private int num;
 	
-	private Set<Customer> customersBoughtIt = new HashSet<Customer>();
-	private Set<Customer> customersPutCart = new HashSet<Customer>();
-	private Set<Customer> customersCollectedIt = new HashSet<Customer>();
+	private Set<CustomerInfo> customersBoughtIt = new HashSet<CustomerInfo>();
+	private Set<CustomerInfo> customersPutCart = new HashSet<CustomerInfo>();
+	private Set<CustomerInfo> customersCollectedIt = new HashSet<CustomerInfo>();
 	
 }

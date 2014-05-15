@@ -1,12 +1,13 @@
 package edu.nju.bookHouse.action;
 
-import edu.nju.bookHouse.model.Customer;
-import edu.nju.bookHouse.service.CustomerService;
+import edu.nju.bookHouse.model.CustomerInfo;
+import edu.nju.bookHouse.model.User;
+import edu.nju.bookHouse.service.UserService;
 
 public class CustomerRegisterAction extends BaseAction{
 	private static final long serialVersionUID = 5184604638086022635L;
 	
-	private CustomerService customerService;
+	private UserService customerService;
 	
 	@Override
 	public String execute() {
@@ -23,13 +24,13 @@ public class CustomerRegisterAction extends BaseAction{
 			String address = request.getParameter("address");
 			String birthdayString = request.getParameter("birthday");
 			String bankId = request.getParameter("bankId"); 
-			Customer customer = customerService.addCustomer(username, password, sex, address, birthdayString, bankId);
-			session.put("customer", customer);
+			User user = customerService.addCustomer(username, password, sex, address, birthdayString, bankId);
+			session.put("user", user);
 			return SUCCESS;
 		}
 	}
 
-	public void setCustomerService(CustomerService customerService) {
+	public void setCustomerService(UserService customerService) {
 		this.customerService = customerService;
 	}
 	

@@ -1,12 +1,12 @@
 package edu.nju.bookHouse.action;
 
 import edu.nju.bookHouse.model.Customer;
-import edu.nju.bookHouse.service.CustomerService;
+import edu.nju.bookHouse.service.UserService;
 
 public class CustomerLoginAction extends BaseAction{
 	private static final long serialVersionUID = 8124963048067029840L;
 	
-	private CustomerService customerService;
+	private UserService customerService;
 	
 	@Override
 	public String execute() {
@@ -29,7 +29,7 @@ public class CustomerLoginAction extends BaseAction{
 		return SUCCESS;
 	}
 
-	public void setCustomerService(CustomerService customerService) {
+	public void setCustomerService(UserService customerService) {
 		this.customerService = customerService;
 	}
 }
