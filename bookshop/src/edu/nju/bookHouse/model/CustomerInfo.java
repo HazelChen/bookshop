@@ -30,7 +30,8 @@ public class CustomerInfo {
 	
 	public CustomerInfo(){}
 	
-	public CustomerInfo(String gender, String address, Date birthDay, Date registerDay, Bank bank) {
+	public CustomerInfo(String id, String gender, String address, Date birthDay, Date registerDay, Bank bank) {
+		this.id = id;
 		this.gender = gender;
 		this.address = address;
 		this.birthday = birthDay;

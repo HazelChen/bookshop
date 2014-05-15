@@ -38,7 +38,7 @@ public class UserService {
 		
 		Bank bank = bankService.find(bankId); 
 		
-		CustomerInfo info = new CustomerInfo(sex, address, birthDay, registerDay, bank);
+		CustomerInfo info = new CustomerInfo(username, sex, address, birthDay, registerDay, bank);
 		User user = new User(username, password, Role.ROLE_CUSTOMER, info);
 		userDao.add(user);
 		return user;
