@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Table(name="buybook")
 public class BuyBook {
 	private int id;
-	private Order order;
+	private OrderForm orderForm;
 	private Book book;
 	
 	@Id
@@ -29,12 +29,12 @@ public class BuyBook {
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) 
-	@JoinColumn(name="orderId")
-	public Order getOrder() {
-		return order;
+	@JoinColumn(name="orderFormId")
+	public OrderForm getOrderForm() {
+		return orderForm;
 	}
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrderForm(OrderForm orderForm) {
+		this.orderForm = orderForm;
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) 

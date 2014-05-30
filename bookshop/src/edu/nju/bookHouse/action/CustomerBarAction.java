@@ -17,7 +17,7 @@ public class CustomerBarAction extends BaseAction{
 	 */
 	@Override
 	public String execute () throws ServletException, IOException {
-		User sessionCustomer = (User)session.get("user");
+		User sessionCustomer = (User)session.get("customer");
 		if (sessionCustomer == null) {
 			return "notLogon";
 		} else {

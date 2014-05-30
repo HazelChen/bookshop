@@ -23,7 +23,7 @@ public class State {
 	private int id;
 	private String state;
 	
-	private Set<Order> orders = new HashSet<Order>();
+	private Set<OrderForm> orderForms = new HashSet<OrderForm>();
 	
 	public State(){}
 	
@@ -51,12 +51,12 @@ public class State {
 	}
 
 	@OneToMany(mappedBy="state",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	public Set<Order> getOrders() {
-		return orders;
+	public Set<OrderForm> getOrderForms() {
+		return orderForms;
 	}
 
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
+	public void setOrderForms(Set<OrderForm> orders) {
+		this.orderForms = orders;
 	}
 	
 	

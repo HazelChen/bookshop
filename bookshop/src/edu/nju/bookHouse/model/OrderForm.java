@@ -11,14 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name="order")
-public class Order {
+@Table(name="orderForm")
+public class OrderForm {
 	private int id;
 	private State state;
 	
@@ -87,7 +85,7 @@ public class Order {
 		this.customerInfo = customerInfo;
 	}
 	
-	@ManyToMany(mappedBy="orders", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="orderForm",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<Book> getBooks() {
 		return books;
 	}
@@ -95,7 +93,7 @@ public class Order {
 		this.books = books;
 	}
 	
-	@OneToMany(mappedBy="discountCoupons",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="orderForm",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<DiscountCoupons> getDiscountCoupons() {
 		return discountCoupons;
 	}
@@ -103,7 +101,7 @@ public class Order {
 		this.discountCoupons = discountCoupons;
 	}
 	
-	@OneToMany(mappedBy="equalCoupons",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="orderForm",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<EqualCoupons> getEqualCoupons() {
 		return equalCoupons;
 	}

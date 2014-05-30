@@ -1,17 +1,20 @@
 package edu.nju.bookHouse.model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.Table;
+@Entity
+@Table(name="equalCoupons")
 public class EqualCoupons {
 	private int id;
 	private EqualCouponsStandard standard;
 	private CustomerInfo customerInfo;
-	private Order order;
+	private OrderForm orderForm;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +28,8 @@ public class EqualCoupons {
 	public void setStandard(EqualCouponsStandard standard) {
 		this.standard = standard;
 	}
+	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="standard")
 	public EqualCouponsStandard getStandard() {
 		return standard;
 	}
@@ -40,10 +45,10 @@ public class EqualCoupons {
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name="orderId")
-	public Order getOrder() {
-		return order;
+	public OrderForm getOrderForm() {
+		return orderForm;
 	}
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrderForm(OrderForm order) {
+		this.orderForm = order;
 	}
 }

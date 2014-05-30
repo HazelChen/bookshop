@@ -1,6 +1,7 @@
 package edu.nju.bookHouse.model;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ public class EqualCouponsStandard {
 	private int id;
 	private double equalValue;
 	
-	private ArrayList<EqualCoupons> equalCoupons;
+	private Set<EqualCoupons> equalCoupons = new HashSet<EqualCoupons>();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,11 +36,14 @@ public class EqualCouponsStandard {
 		this.equalValue = equalValue;
 	}
 	
-	@OneToMany(mappedBy="equalCoupons",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	public ArrayList<EqualCoupons> getEqualCoupons() {
+	@OneToMany(mappedBy="standard",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<EqualCoupons> getEqualCoupons() {
 		return equalCoupons;
 	}
-	public void setEqualCoupons(ArrayList<EqualCoupons> equalCoupons) {
+	public void setEqualCoupons(Set<EqualCoupons> equalCoupons) {
 		this.equalCoupons = equalCoupons;
 	}
+	
+	
+	
 }

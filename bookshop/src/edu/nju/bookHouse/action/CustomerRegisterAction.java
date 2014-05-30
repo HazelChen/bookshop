@@ -24,7 +24,7 @@ public class CustomerRegisterAction extends BaseAction{
 			String birthdayString = request.getParameter("birthday");
 			String bankId = request.getParameter("bankId"); 
 			User user = userService.addCustomer(username, password, sex, address, birthdayString, bankId);
-			session.put("user", user);
+			session.put("customer", user);
 			return SUCCESS;
 		}
 	}

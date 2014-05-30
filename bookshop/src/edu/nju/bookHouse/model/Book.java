@@ -28,11 +28,11 @@ public class Book {
 	private String description;
 	
 	private Category category;
+	private OrderForm orderForm;
 	
 	private Set<CustomerInfo> customersPutCart = new HashSet<CustomerInfo>();
 	private Set<CustomerInfo> customersCollectedIt = new HashSet<CustomerInfo>();
 	
-	private Set<Order> orders = new HashSet<Order>();
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -120,19 +120,15 @@ public class Book {
 		this.customersCollectedIt = customersCollectedIt;
 	}
 	
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
-	@JoinTable(
-			name="buybook",
-			joinColumns=@JoinColumn(name="orderid", referencedColumnName="id"),
-			inverseJoinColumns=@JoinColumn(name="bookid", referencedColumnName="id")
-			)
-	public Set<Order> getOrders() {
-		return orders;
-	}
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
-	}
 	
+	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="orderFormId")
+	public OrderForm getOrderForm() {
+		return orderForm;
+	}
+	public void setOrderForm(OrderForm orderForm) {
+		this.orderForm = orderForm;
+	}
 	
 	
 	

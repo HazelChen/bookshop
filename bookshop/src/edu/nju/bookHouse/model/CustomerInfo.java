@@ -32,7 +32,7 @@ public class CustomerInfo {
 	
 	private Set<Book> booksInShoppingCart = new HashSet<Book>();
 	private Set<Book> booksCollected = new HashSet<Book>();
-	private Set<Order> orders = new HashSet<Order>();
+	private Set<OrderForm> orderForms = new HashSet<OrderForm>();
 	private Set<DiscountCoupons> discountCoupons = new HashSet<DiscountCoupons>();
 	private Set<EqualCoupons> equalCoupons = new HashSet<EqualCoupons>();
 	
@@ -126,16 +126,16 @@ public class CustomerInfo {
 		this.booksCollected = booksCollected;
 	}
 
-	@OneToMany(mappedBy="order",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	public Set<Order> getOrders() {
-		return orders;
+	@OneToMany(mappedBy="customerInfo",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<OrderForm> getOrderForms() {
+		return orderForms;
 	}
 
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
+	public void setOrderForms(Set<OrderForm> orders) {
+		this.orderForms = orders;
 	}
 	
-	@OneToMany(mappedBy="discountCoupons",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="customerInfo",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<DiscountCoupons> getDiscountCoupons() {
 		return discountCoupons;
 	}
@@ -144,7 +144,7 @@ public class CustomerInfo {
 		this.discountCoupons = discountCoupons;
 	}
 
-	@OneToMany(mappedBy="equalCoupons",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="customerInfo",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<EqualCoupons> getEqualCoupons() {
 		return equalCoupons;
 	}

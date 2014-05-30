@@ -15,7 +15,7 @@ public class DiscountCoupons {
 	private int id;
 	private DiscountCouponsStandard standard;
 	private CustomerInfo customerInfo;
-	private Order order;
+	private OrderForm orderForm;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +26,8 @@ public class DiscountCoupons {
 		this.id = id;
 	}
 	
+	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="standard")
 	public DiscountCouponsStandard getStandard() {
 		return standard;
 	}
@@ -42,14 +44,14 @@ public class DiscountCoupons {
 		this.customerInfo = customerInfo;
 	}
 	
-	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="orderId")
-	public Order getOrder() {
-		return order;
-	}
-	public void setOrder(Order order) {
-		this.order = order;
-	}
 	
+	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="orderFormId")
+	public OrderForm getOrderForm() {
+		return orderForm;
+	}
+	public void setOrderForm(OrderForm orderForm) {
+		this.orderForm = orderForm;
+	}
 	
 }

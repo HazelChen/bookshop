@@ -13,20 +13,20 @@ import javax.persistence.Table;
 @Table(name="category")
 public class Category {
 	
-	private String categoty;
+	private String category;
 
 	private Set<Book> books;
 	
 	@Id
-	public String getCategoty() {
-		return categoty;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setCategoty(String categoty) {
-		this.categoty = categoty;
+	public void setCategory(String categoty) {
+		this.category = categoty;
 	}
 
-	@OneToMany(mappedBy="book",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="category",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<Book> getBooks() {
 		return books;
 	}

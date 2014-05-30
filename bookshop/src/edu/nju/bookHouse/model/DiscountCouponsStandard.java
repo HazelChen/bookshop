@@ -1,6 +1,7 @@
 package edu.nju.bookHouse.model;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,13 +12,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author Administrator
+ *
+ */
 @Entity
 @Table(name="discountCouponsStandard")
 public class DiscountCouponsStandard {
 	private int id;
 	private double discount;//0.8
 	
-	private ArrayList<DiscountCoupons> discountCoupons;
+	private Set <DiscountCoupons> discountCoupons = new HashSet<DiscountCoupons>();
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,11 +40,16 @@ public class DiscountCouponsStandard {
 		this.discount = discount;
 	}
 	
-	@OneToMany(mappedBy="discountcoupons",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	public ArrayList<DiscountCoupons> getDiscountCoupons() {
+	@OneToMany(mappedBy="standard",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<DiscountCoupons> getDiscountCoupons() {
 		return discountCoupons;
 	}
-	public void setDiscountCoupons(ArrayList<DiscountCoupons> discountCoupons) {
+	public void setDiscountCoupons(Set<DiscountCoupons> discountCoupons) {
 		this.discountCoupons = discountCoupons;
 	}
+	
+	
+	
+	
+	
 }
