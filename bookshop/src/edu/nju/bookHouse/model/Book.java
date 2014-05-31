@@ -35,6 +35,19 @@ public class Book {
 	private Set<CustomerInfo> customersPutCart = new HashSet<CustomerInfo>();
 	private Set<CustomerInfo> customersCollectedIt = new HashSet<CustomerInfo>();
 	
+	public Book(){}
+	
+	public Book(String name, String ISBN, String author, String press, Date publishDate, double price, String description, int count, Category category) {
+		this.name = name;
+		this.ISBN = ISBN;
+		this.author = author;
+		this.press = press;
+		this.publishDate = publishDate;
+		this.price = price;
+		this.description = description;
+		this.count = count;
+		this.category = category;
+	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

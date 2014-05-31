@@ -18,6 +18,12 @@ public class Category {
 
 	private Set<Book> books = new HashSet<Book>();
 	
+	public Category(){}
+	
+	public Category(String category) {
+		this.category = category;
+	}
+	
 	@Id
 	public String getCategory() {
 		return category;

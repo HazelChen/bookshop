@@ -43,6 +43,15 @@
 		</property>
 	</bean>
 	
+	<bean id="addBook" class="edu.nju.bookHouse.action.AddBookAction">
+    	<property name="categoryService">
+			<ref bean="categoryService" />
+		</property>
+		<property name="bookService">
+			<ref bean="bookService" />
+		</property>
+	</bean>
+	
 	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
@@ -72,6 +81,9 @@
     <bean id="bookService" class="edu.nju.bookHouse.service.BookService">
     	<property name="bookDao">
 			<ref bean="bookDao" />
+		</property>
+		<property name="dateChanger">
+			<ref bean="dateChanger" />
 		</property>
 	</bean>
 	

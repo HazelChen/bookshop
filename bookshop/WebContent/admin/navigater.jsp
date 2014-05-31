@@ -14,7 +14,7 @@
         	</div>
         	<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-          			<li><a href='<s:url value="addBook.jsp"/>'>Add Book</a></li>
+          			<li><a href='<s:url action="addBookShow"/>'>Add Book</a></li>
           		</ul>
           		<div class="navbar-form navbar-right nav navbar-nav" >
           			<s:action name="userBar" executeResult="true"></s:action>

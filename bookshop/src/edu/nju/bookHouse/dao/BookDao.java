@@ -20,6 +20,8 @@ public class BookDao {
 	public void setDaoHelper(DaoHelper daoHelper) {
 		this.daoHelper = daoHelper;
 	}
-	
-	
+
+	public void add(Book book) {
+		daoHelper.save(book);
+	}
 }

@@ -25,6 +25,14 @@ public class User {
 		this.customerInfo = customerInfo;
 	}
 	
+	public boolean admin(){
+		return role.admin();
+	}
+	
+	public boolean customer() {
+		return role.customer();
+	}
+	
 	@Id
 	public String getUsername() {
 		return username;

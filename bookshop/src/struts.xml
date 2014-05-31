@@ -32,13 +32,21 @@
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">
 		<action name="adminLogin" class="adminLoginAction">
-			<result name="success">/addBook.jsp</result>
-			<result name="input" type="redirect">/login.jsp</result>
+			<result name="success" type="chain">addBookShow</result>
+			<result name="input" type="redirect">/admin/login.jsp</result>
+		</action>
+		
+		<action name="addBookShow" class="addBook" method="show">
+			<result name="success">/admin/addBook.jsp</result>
+		</action>
+		
+		<action name="addBook" class="addBook" method="add">
+			<result name="success">/admin/addBook.jsp</result>
 		</action>
 		
 		<action name="userBar" class="userBarAction" method="adminBar">
-			<result name="logon">/userBar.jsp</result>
-			<result name="notLogon">/notLogonBar.jsp</result>
+			<result name="logon">/admin/userBar.jsp</result>
+			<result name="notLogon">/admin/notLogonBar.jsp</result>
 		</action>
 	</package>
 	

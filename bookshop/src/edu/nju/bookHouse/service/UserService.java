@@ -46,7 +46,7 @@ public class UserService {
 	
 	public User adminLoginVerify(String username, String password) {
 		User user = loginVerify(username, password);
-		if (user != null && user.getRole().isAdmin()) {
+		if (user != null && user.admin()) {
 			return user;
 		} else {
 			return null;
@@ -55,7 +55,7 @@ public class UserService {
 	
 	public User customerLoginVerify(String username, String password) {
 		User user = loginVerify(username, password);
-		if (user != null && user.getRole().isCustomer()) {
+		if (user != null && user.customer()) {
 			return user;
 		} else {
 			return null;
