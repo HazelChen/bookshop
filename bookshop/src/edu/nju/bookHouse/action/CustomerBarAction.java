@@ -26,9 +26,7 @@ public class CustomerBarAction extends BaseAction{
 		}
 	}
 
-
 	public User getUser() {
 		return user;
 	}
-	
 }

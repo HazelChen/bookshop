@@ -28,6 +28,15 @@
 		</property>
 	</bean>
 	
+    <bean id="homepageAction" class="edu.nju.bookHouse.action.HomepageAction">
+    	<property name="categoryService">
+			<ref bean="categoryService" />
+		</property>
+    	<property name="bookService">
+			<ref bean="bookService" />
+		</property>
+	</bean>
+	
 	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
@@ -48,6 +57,18 @@
 		</property>
 	</bean>
 	
+    <bean id="categoryService" class="edu.nju.bookHouse.service.CategoryService">
+    	<property name="categoryDao">
+			<ref bean="categoryDao" />
+		</property>
+	</bean>
+	
+    <bean id="bookService" class="edu.nju.bookHouse.service.BookService">
+    	<property name="bookDao">
+			<ref bean="bookDao" />
+		</property>
+	</bean>
+	
 	
 	<!-- other services -->
     <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
@@ -65,6 +86,17 @@
 	</bean>
 	
 	<bean id="bankDao" class="edu.nju.bookHouse.dao.BankDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="categoryDao" class="edu.nju.bookHouse.dao.CategoryDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	<bean id="bookDao" class="edu.nju.bookHouse.dao.BookDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>

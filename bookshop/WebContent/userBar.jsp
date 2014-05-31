@@ -9,12 +9,12 @@
 </head>
 <body>
 		<%String path = request.getContextPath();
-		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/images/user\\";
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/images/user/";
 		%>
 		
 		<a href="#" class="btn btn-primary">
-			<img src="<%=basePath %><s:property value="user.headerUrl" />" />
-			<span><s:property value="customer.username" /></span>
+			<img src="<%=basePath %><s:property value="user.username" />.jpg" />
+			<span><s:property value="user.username" /></span>
 		</a>
 		
 		<a href='<s:url action="customerLogout"/>' class="btn btn-primary">注销</a>

@@ -18,6 +18,7 @@ public class BuyBook {
 	private int id;
 	private OrderForm orderForm;
 	private Book book;
+	private int count;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,6 +46,11 @@ public class BuyBook {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	
 }

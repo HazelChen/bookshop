@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="bookincart")
 public class BookInCart {
 	private int id;
-	private CustomerInfo customer;
+	private CustomerInfo customerInfo;
 	private Book book;
 	private Date date;
 	
@@ -29,11 +29,11 @@ public class BookInCart {
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) 
 	@JoinColumn(name="customerInfoId")
-	public CustomerInfo getCustomer() {
-		return customer;
+	public CustomerInfo getCustomerInfo() {
+		return customerInfo;
 	}
-	public void setCustomer(CustomerInfo customer) {
-		this.customer = customer;
+	public void setCustomerInfo(CustomerInfo customer) {
+		this.customerInfo = customer;
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) 

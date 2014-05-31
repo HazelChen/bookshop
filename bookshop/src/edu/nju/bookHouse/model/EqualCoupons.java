@@ -44,7 +44,7 @@ public class EqualCoupons {
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="orderId")
+	@JoinColumn(name="orderFormId")
 	public OrderForm getOrderForm() {
 		return orderForm;
 	}

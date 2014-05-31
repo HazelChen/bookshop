@@ -13,16 +13,20 @@
 		
 		<action name="register" class="customerRegisterAction">
 			<result name="input" type="redirect">/register.jsp</result>
-			<result name="success">/homepage.jsp</result>
+			<result name="success" type="redirect">/homepage.jsp</result>
 		</action>
 		
 		<action name="customerLogin" class="customerLoginAction">
-			<result name="success">/homepage.jsp</result>
+			<result name="success" type="chain">homepage</result>
 			<result name="input" type="redirect">/login.jsp</result>
 		</action>
 		
 		<action name="customerLogout" class="customerLoginAction" method="logout">
 			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+		
+		<action name="homepage" class="homepageAction">
+			<result name="success">/homepage.jsp</result>
 		</action>
 	</package>
 	

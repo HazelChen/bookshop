@@ -26,7 +26,8 @@ public class OrderForm {
 	private Date receiveDate;
 	
 	private CustomerInfo customerInfo;
-	private Set<Book> books = new HashSet<Book>();
+	
+	private Set<BuyBook> buyBooks = new HashSet<BuyBook>();
 	private Set<DiscountCoupons> discountCoupons = new HashSet<DiscountCoupons>();
 	private Set<EqualCoupons> equalCoupons = new HashSet<EqualCoupons>();
 	
@@ -77,7 +78,7 @@ public class OrderForm {
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="customerInfo")
+	@JoinColumn(name="customerInfoId")
 	public CustomerInfo getCustomerInfo() {
 		return customerInfo;
 	}
@@ -86,11 +87,11 @@ public class OrderForm {
 	}
 	
 	@OneToMany(mappedBy="orderForm",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	public Set<Book> getBooks() {
-		return books;
+	public Set<BuyBook> getBuyBooks() {
+		return buyBooks;
 	}
-	public void setBooks(Set<Book> books) {
-		this.books = books;
+	public void setBuyBooks(Set<BuyBook> books) {
+		this.buyBooks = books;
 	}
 	
 	@OneToMany(mappedBy="orderForm",cascade=CascadeType.ALL,fetch=FetchType.EAGER)

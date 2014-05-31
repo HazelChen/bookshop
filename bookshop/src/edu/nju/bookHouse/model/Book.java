@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="book")
@@ -26,10 +27,11 @@ public class Book {
 	private Date publishDate;
 	private double price;
 	private String description;
+	private int count;
 	
 	private Category category;
-	private OrderForm orderForm;
 	
+	private Set<BuyBook> buyBooks = new HashSet<BuyBook>();
 	private Set<CustomerInfo> customersPutCart = new HashSet<CustomerInfo>();
 	private Set<CustomerInfo> customersCollectedIt = new HashSet<CustomerInfo>();
 	
@@ -86,7 +88,7 @@ public class Book {
 	}
 
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="categoty")
+	@JoinColumn(name="category")
 	public Category getCategory() {
 		return category;
 	}
@@ -97,8 +99,8 @@ public class Book {
 	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinTable(
 			name="bookincart",
-			joinColumns=@JoinColumn(name="customerInfoId", referencedColumnName="id"),
-			inverseJoinColumns=@JoinColumn(name="bookId", referencedColumnName="id")
+			joinColumns=@JoinColumn(name="bookId", referencedColumnName="id"),
+			inverseJoinColumns=@JoinColumn(name="customerInfoId", referencedColumnName="id")
 			)
 	public Set<CustomerInfo> getCustomersPutCart() {
 		return customersPutCart;
@@ -110,8 +112,8 @@ public class Book {
 	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinTable(
 			name="bookcollected",
-			joinColumns=@JoinColumn(name="customerInfoId", referencedColumnName="id"),
-			inverseJoinColumns=@JoinColumn(name="bookId", referencedColumnName="id")
+			joinColumns=@JoinColumn(name="bookId", referencedColumnName="id"),
+			inverseJoinColumns=@JoinColumn(name="customerInfoId", referencedColumnName="id")
 			)
 	public Set<CustomerInfo> getCustomersCollectedIt() {
 		return customersCollectedIt;
@@ -121,13 +123,19 @@ public class Book {
 	}
 	
 	
-	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-	@JoinColumn(name="orderFormId")
-	public OrderForm getOrderForm() {
-		return orderForm;
+	@OneToMany(mappedBy="book",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<BuyBook> getBuyBooks() {
+		return buyBooks;
 	}
-	public void setOrderForm(OrderForm orderForm) {
-		this.orderForm = orderForm;
+	public void setBuyBooks(Set<BuyBook> buyBooks) {
+		this.buyBooks = buyBooks;
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	
