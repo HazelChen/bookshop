@@ -1,4 +1,13 @@
 @CHARSET "UTF-8";
-body {
-  padding-top: 50px;
+
+.margin_top_30 {
+	margin-top:30px;
+}
+
+.margin_top_10 {
+	margin-top:10px;
+}
+
+.right {
+	float: right;
 }

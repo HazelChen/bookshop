@@ -8,9 +8,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="role")
 public class Role {
-	public static final Role ROLE_CUSTOMER = new Role(1, "customer");
-	public static final Role ROLE_ADMIN = new Role(2, "admin");
-	public static final Role ROLE_MANAGER = new Role(3, "manager");
+//	public static final Role ROLE_CUSTOMER = new Role(1, "customer");
+//	public static final Role ROLE_ADMIN = new Role(2, "admin");
+//	public static final Role ROLE_MANAGER = new Role(3, "manager");
 	
 	private int id;
 	private String type;
@@ -46,6 +46,36 @@ public class Role {
 		this.user = user;
 	}
 	
+	public void setAdmin(String admin) {
+		System.out.println(admin);
+	}
+	public void setCustomer(String admin) {
+		System.out.println(admin);
+	}
+	
+	public boolean isAdmin() {
+		if (this.equals(new Role(1, "admin"))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isCustomer() {
+		if (this.equals(new Role(1, "admin"))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isManager() {
+		if (this.equals(new Role(1, "admin"))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 }

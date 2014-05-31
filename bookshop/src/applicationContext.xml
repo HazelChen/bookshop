@@ -13,7 +13,7 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     
     <!-- actions -->
-    <bean id="customerBarAction" class="edu.nju.bookHouse.action.CustomerBarAction">
+    <bean id="userBarAction" class="edu.nju.bookHouse.action.UserBarAction">
 	</bean>
 	
     <bean id="customerRegisterAction" class="edu.nju.bookHouse.action.CustomerRegisterAction">
@@ -23,6 +23,12 @@
 	</bean>
 	
     <bean id="customerLoginAction" class="edu.nju.bookHouse.action.CustomerLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
+    <bean id="adminLoginAction" class="edu.nju.bookHouse.action.AdminLoginAction">
     	<property name="userService">
 			<ref bean="userService" />
 		</property>

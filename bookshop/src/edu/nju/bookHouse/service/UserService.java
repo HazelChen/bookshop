@@ -39,12 +39,30 @@ public class UserService {
 		Bank bank = bankService.find(bankId); 
 		
 		CustomerInfo info = new CustomerInfo(sex, address, birthDay, registerDay, bank);
-		User user = new User(username, password, Role.ROLE_CUSTOMER, info);
+		User user = new User(username, password, new Role(1, "customer"), info);
 		userDao.add(user);
 		return user;
 	}
 	
-	public User loginVerify(String username, String password) {
+	public User adminLoginVerify(String username, String password) {
+		User user = loginVerify(username, password);
+		if (user != null && user.getRole().isAdmin()) {
+			return user;
+		} else {
+			return null;
+		}
+	}
+	
+	public User customerLoginVerify(String username, String password) {
+		User user = loginVerify(username, password);
+		if (user != null && user.getRole().isCustomer()) {
+			return user;
+		} else {
+			return null;
+		}
+	}
+	
+	private User loginVerify(String username, String password) {
 		User user = userDao.find(username);
 		if (user == null || !user.getPassword().equals(password)) {
 			return null;

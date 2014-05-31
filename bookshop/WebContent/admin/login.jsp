@@ -7,17 +7,17 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Book House</title>
 	<link rel="shortcut icon" href="<s:url value="/favicon.ico" />">
-	<link href="<s:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-	<link href="<s:url value="/css/default.css" />" rel="stylesheet">
+	<link href="<s:url value="../css/bootstrap.min.css" />" rel="stylesheet">
+	<link href="<s:url value="../css/default.css" />" rel="stylesheet">
 </head>
 <body>
-	<s:include value="navigater.jsp" />
+	<s:include value="navigaterAdmin.jsp" />
     
     <div class="jumbotron">
     	<div class="container">
     		<div class="row">
     			<div class="col-md-8">
-    				<img src="image/logo.png" width=250px height="250px">
+    				<img src="../image/logo.png" width=250px height="250px">
     			</div>
     			<%String failMsg = (String)session.getAttribute("loginError");
 				if (failMsg != null) {%>

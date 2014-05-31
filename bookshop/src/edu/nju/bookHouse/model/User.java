@@ -39,7 +39,7 @@ public class User {
 		this.password = password;
 	}
 	
-	@OneToOne(optional = true, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToOne(optional = false, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "role")
 	public Role getRole() {
 		return role;

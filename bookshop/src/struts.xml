@@ -6,7 +6,7 @@
 <struts>
 	<!-- 用户 -->
 	<package name="struts2-customer" extends="struts-default">
-		<action name="customerBar" class="customerBarAction">
+		<action name="customerBar" class="userBarAction">
 			<result name="logon">/userBar.jsp</result>
 			<result name="notLogon">/notLogonBar.jsp</result>
 		</action>
@@ -27,6 +27,18 @@
 		
 		<action name="homepage" class="homepageAction">
 			<result name="success">/homepage.jsp</result>
+		</action>
+	</package>
+	
+	<package name="struts2-admin" extends="struts-default" namespace="/admin">
+		<action name="adminLogin" class="adminLoginAction">
+			<result name="success">/addBook.jsp</result>
+			<result name="input" type="redirect">/login.jsp</result>
+		</action>
+		
+		<action name="userBar" class="userBarAction" method="adminBar">
+			<result name="logon">/userBar.jsp</result>
+			<result name="notLogon">/notLogonBar.jsp</result>
 		</action>
 	</package>
 	
