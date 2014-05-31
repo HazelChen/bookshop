@@ -1,5 +1,6 @@
 package edu.nju.bookHouse.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,7 +16,7 @@ public class Category {
 	
 	private String category;
 
-	private Set<Book> books;
+	private Set<Book> books = new HashSet<Book>();
 	
 	@Id
 	public String getCategory() {
@@ -26,7 +27,7 @@ public class Category {
 		this.category = categoty;
 	}
 
-	@OneToMany(mappedBy="category",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="category",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	public Set<Book> getBooks() {
 		return books;
 	}

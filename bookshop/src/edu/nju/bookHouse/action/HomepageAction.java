@@ -12,7 +12,7 @@ public class HomepageAction extends BaseAction{
 	private static final long serialVersionUID = 1978030674588040286L;
 	
 	private List<Category> categories;
-	private List<Book> books;
+	//private List<Book> books;
 	
 	private CategoryService categoryService;
 	private BookService bookService;
@@ -21,14 +21,14 @@ public class HomepageAction extends BaseAction{
 	public String execute() {
 		categories = categoryService.getAll();
 		
-		String categoryString = request.getParameter("category");
-		if (categoryString == null) {
-			books = bookService.getAll();
-		} else {
-			Category category = categoryService.find(categoryString);
-			books = new ArrayList<Book>();
-			books.addAll(category.getBooks());
-		}
+//		String categoryString = request.getParameter("category");
+//		if (categoryString == null) {
+//			books = bookService.getAll();
+//		} else {
+//			Category category = categoryService.find(categoryString);
+//			books = new ArrayList<Book>();
+//			books.addAll(category.getBooks());
+//		}
 		return SUCCESS;
 	}
 
@@ -40,13 +40,13 @@ public class HomepageAction extends BaseAction{
 		this.categories = categories;
 	}
 
-	public List<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(List<Book> books) {
-		this.books = books;
-	}
+//	public List<Book> getBooks() {
+//		return books;
+//	}
+//
+//	public void setBooks(List<Book> books) {
+//		this.books = books;
+//	}
 
 	public CategoryService getCategoryService() {
 		return categoryService;
