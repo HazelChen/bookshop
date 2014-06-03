@@ -34,6 +34,12 @@
 		</property>
 	</bean>
 	
+    <bean id="managerLoginAction" class="edu.nju.bookHouse.action.ManagerLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
     <bean id="homepageAction" class="edu.nju.bookHouse.action.HomepageAction">
     	<property name="categoryService">
 			<ref bean="categoryService" />

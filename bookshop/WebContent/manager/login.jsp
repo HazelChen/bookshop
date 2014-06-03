@@ -23,7 +23,7 @@
 				if (failMsg != null) {%>
 				<span class="error"><%=failMsg%></span><%} %>
     			<div class="col-md-4 pull-right">
-    				<form class="form-signin" role="form" action="adminLogin" method="post">
+    				<form class="form-signin" role="form" action="managerLogin" method="post">
         				<input type="text" class="form-control input-lg margin-top" name="username" placeholder="Your username" required autofocus>
         				<input type="password" class="form-control input-lg margin-top" name="password" placeholder="Your password" required>
         				<button class="btn btn-lg btn-primary btn-block margin-top" type="submit">Sign in for BookHouse</button>

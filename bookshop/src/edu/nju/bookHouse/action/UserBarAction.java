@@ -35,6 +35,16 @@ public class UserBarAction extends BaseAction{
 			return "logon";
 		}
 	}
+	
+	public String managerBar() throws ServletException, IOException {
+		User sessionManager = (User)session.get("manager");
+		if (sessionManager == null) {
+			return "notLogon";
+		} else {
+			this.user = sessionManager;
+			return "logon";
+		}
+	}
 
 	public User getUser() {
 		return user;
