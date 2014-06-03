@@ -58,6 +58,18 @@
 		</property>
 	</bean>
 	
+	<bean id="bookInCartAction" class="edu.nju.bookHouse.action.AddBookToCartAction">
+    	<property name="bookInCartService">
+			<ref bean="bookInCartService" />
+		</property>
+	</bean>
+	
+	<bean id="myCartAction" class="edu.nju.bookHouse.action.MyCartAction">
+    	<property name="bookInCartService">
+			<ref bean="bookInCartService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">
@@ -98,6 +110,12 @@
 		</property>
 	</bean>
 	
+	<bean id="bookInCartService" class="edu.nju.bookHouse.service.BookInCartService">
+    	<property name="bookInCartDao">
+			<ref bean="bookInCartDao" />
+		</property>
+	</bean>
+	
 	<!-- other services -->
     <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
 	</bean>
@@ -131,6 +149,12 @@
 	</bean>
 	
 	<bean id="collectedBookDao" class="edu.nju.bookHouse.dao.CollectedBookDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="bookInCartDao" class="edu.nju.bookHouse.dao.BookInCartDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>

@@ -32,6 +32,15 @@
 		<action name="collectBook" class="collectBookAction">
 			<result name="success" type="chain">homepage</result>
 		</action>
+		
+		<action name="bookInCart" class="bookInCartAction">
+			<result name="success" type="chain">homepage</result>
+		</action>
+		
+		<action name="myCart" class="myCartAction">
+			<result name="success">myCart.jsp</result>
+		</action>
+		
 	</package>
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">

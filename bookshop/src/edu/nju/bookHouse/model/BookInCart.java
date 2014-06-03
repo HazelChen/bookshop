@@ -1,6 +1,6 @@
 package edu.nju.bookHouse.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,6 +17,16 @@ public class BookInCart {
 	private CustomerInfo customerInfo;
 	private Book book;
 	private Date date;
+	private int count;
+	
+	public BookInCart(){}
+	
+	public BookInCart(CustomerInfo customerInfo, Book book, java.util.Date date) {
+		this.customerInfo = customerInfo;
+		this.book = book;
+		this.date = date;
+		this.count = 1;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,6 +61,16 @@ public class BookInCart {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	
 	
 	
 }

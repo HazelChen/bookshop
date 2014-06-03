@@ -59,11 +59,14 @@
 							<span class="label label-info">Press:</span><s:property value="press"/>
 						</li>
 						<li class="list-group-item">
+							<span class="label label-info">Price:</span><s:property value="price"/>
+						</li>
+						<li class="list-group-item">
 							<s:property value="description"/>
 						</li>
 					</ul>
 					<div class="right">
-	            		<a class="btn btn-lg btn-success" href='#'>Buy it</a>
+	            		<a class="btn btn-lg btn-success" href='bookInCart?bookId=<s:property value="id"/>'>Buy it</a>
     	        		<a class="btn btn-lg btn-warning" href='collectBook?bookId=<s:property value="id"/>'>Collect it</a>
     	        	</div>
         	  	</div>

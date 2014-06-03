@@ -10,9 +10,15 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
         	<div class="navbar-header">
-				<a class="navbar-brand" class="active" href="homepage.jsp">Book House</a>
+				<a class="navbar-brand" class="active" href='<s:url action="homepage"/>'>Book House</a>
         	</div>
-        	<div class="navbar-collapse collapse">
+        	<div class="navbar-collapse collapse navbar-right">
+        		<ul class="nav navbar-nav">
+          			<li><a href='<s:url action="myCart"/>'>My Cart</a></li>
+          			<li><a href='<s:url action="addBookShow"/>'>Favorites</a></li>
+          			<li><a href='<s:url action="addBookShow"/>'>My Coupons</a></li>
+          			<li><a href='<s:url action="addBookShow"/>'>Purchase Records</a></li>
+          		</ul>
           		<div class="navbar-form navbar-right nav navbar-nav" >
           			<s:action name="customerBar" executeResult="true"></s:action>
 				</div> 
