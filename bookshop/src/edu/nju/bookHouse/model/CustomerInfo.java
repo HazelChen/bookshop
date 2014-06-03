@@ -39,6 +39,10 @@ public class CustomerInfo {
 	
 	public CustomerInfo(){}
 	
+	public CustomerInfo(int id) {
+		this.id = id;
+	}
+	
 	public CustomerInfo(String gender, String address, Date birthDay, Date registerDay, Bank bank) {
 		this.gender = gender;
 		this.address = address;

@@ -1,6 +1,6 @@
 package edu.nju.bookHouse.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,6 +17,14 @@ public class BookCollected {
 	private CustomerInfo customerInfo;
 	private Book book;
 	private Date date;
+	
+	public BookCollected(){}
+	
+	public BookCollected(CustomerInfo customerInfo, Book book, Date date) {
+		this.customerInfo = customerInfo;
+		this.book = book;
+		this.date = date;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -37,6 +37,10 @@ public class Book {
 	
 	public Book(){}
 	
+	public Book(int bookId) {
+		this.id = bookId;
+	}
+	
 	public Book(String name, String ISBN, String author, String press, Date publishDate, double price, String description, int count, Category category) {
 		this.name = name;
 		this.ISBN = ISBN;

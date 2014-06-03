@@ -28,6 +28,10 @@
 		<action name="homepage" class="homepageAction">
 			<result name="success">/homepage.jsp</result>
 		</action>
+		
+		<action name="collectBook" class="collectBookAction">
+			<result name="success" type="chain">homepage</result>
+		</action>
 	</package>
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">

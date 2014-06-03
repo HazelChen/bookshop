@@ -63,8 +63,8 @@
 						</li>
 					</ul>
 					<div class="right">
-	            		<button class="btn btn-lg btn-success" type="submit">Buy it</button>
-    	        		<button class="btn btn-lg btn-warning" type="submit">Collect it</button>
+	            		<a class="btn btn-lg btn-success" href='#'>Buy it</a>
+    	        		<a class="btn btn-lg btn-warning" href='collectBook?bookId=<s:property value="id"/>'>Collect it</a>
     	        	</div>
         	  	</div>
 			</div>

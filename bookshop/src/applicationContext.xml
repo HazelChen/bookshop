@@ -52,6 +52,11 @@
 		</property>
 	</bean>
 	
+	<bean id="collectBookAction" class="edu.nju.bookHouse.action.CollectBookAction">
+    	<property name="collectedBookService">
+			<ref bean="collectedBookService" />
+		</property>
+	</bean>
 	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
@@ -87,6 +92,11 @@
 		</property>
 	</bean>
 	
+	<bean id="collectedBookService" class="edu.nju.bookHouse.service.CollectedBookService">
+    	<property name="collectedBookDao">
+			<ref bean="collectedBookDao" />
+		</property>
+	</bean>
 	
 	<!-- other services -->
     <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
@@ -115,6 +125,12 @@
 		</property>
 	</bean>
 	<bean id="bookDao" class="edu.nju.bookHouse.dao.BookDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="collectedBookDao" class="edu.nju.bookHouse.dao.CollectedBookDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>
