@@ -49,7 +49,7 @@
 						<img src='<%=basePath %><s:property value="id"/>.jpg'/>
 					</div>
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-9">
 					<h3><s:property value="name"/></h3>
 					<ul class="list-group">
 						<li class="list-group-item">

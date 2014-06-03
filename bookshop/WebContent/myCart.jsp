@@ -11,7 +11,8 @@
 <link href="<s:url value="/css/default.css" />" rel="stylesheet">
 
 <script src=<s:url value="/js/jquery-2.1.0.js" /> type="text/javascript"></script>
-<script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
+<script src=<s:url value="/js/bootstrap.min.js" />
+	type="text/javascript"></script>
 
 </head>
 <body>
@@ -24,37 +25,59 @@
 					+ request.getServerName() + ":" + request.getServerPort()
 					+ path + "/images/book\\";
 		%>
-		<div class="right">
-			<h1>Total:<s:property value="totalPrice" /></h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+			<h1 class="right">
+				Total:
+				<s:property value="totalPrice" />
+			</h1>
+			</div>
+			<div class="col-md-2">
+			<a class="btn btn-lg btn-success margin-top-20"
+									href='bookInCart?bookId=<s:property value="id"/>'>Chekout</a>
+			</div>
+			</div>
 		</div>
-		<table class="table">
-			<thead>
-				<tr>
-					<th width="20%">Book Infomation</th>
-					<th width="30%"></th>
-					<th width="15%">Price</th>
-					<th width="15%">Count</th>
-					<th width="20%">Operation</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<s:iterator value="cartBooks" status="st">
-					<td width="20%"><img src='<%=basePath%><s:property value="id"/>.jpg' height="150" width="150"/></td>
-					<td valign="middle" width="30%">
-						<h3><s:property value="name" /></h3>
-						Author:<s:property value="author" /><br />
-						Press:<s:property value="press" />
-					</td>
-					<td valign="middle" width="15%"><h4><s:property value="price" /></h4></td>
-					<td valign="middle" width="15%"><h4><s:property value="bookInCarts[#st.index].count" /></h4></td>
-					<td valign="middle" width="20%"><a class="btn btn-lg btn-success"
-							href='bookInCart?bookId=<s:property value="id"/>'>Delete it</a></td>
-				</s:iterator>
-				</tr>
-			</tbody>
-		</table>
-				
+		<div class="container">
+			<div class="row">
+				<table class="table">
+					<thead>
+						<tr>
+							<th width="20%">Book Infomation</th>
+							<th width="30%"></th>
+							<th width="15%">Price</th>
+							<th width="15%">Count</th>
+							<th width="20%">Operation</th>
+						</tr>
+					</thead>
+					<tbody>
+						<s:iterator value="cartBooks" status="st">
+							<tr>
+								<td width="20%"><img
+									src='<%=basePath%><s:property value="id"/>.jpg' height="150"
+									width="150" /></td>
+								<td width="30%">
+									<h3>
+										<s:property value="name" />
+									</h3> Author:<s:property value="author" /><br /> Press:<s:property
+										value="press" />
+								</td>
+								<td width="15%"><h4>
+										<s:property value="price" />
+									</h4></td>
+								<td width="15%"><h4>
+										<s:property value="bookInCarts[#st.index].count" />
+									</h4></td>
+								<td width="20%"><a class="btn btn-lg btn-warning"
+									href='bookInCart?bookId=<s:property value="id"/>'>Delete it</a></td>
+							</tr>
+						</s:iterator>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
 	</div>
 </body>
 </html>

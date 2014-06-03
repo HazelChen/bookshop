@@ -15,7 +15,7 @@
         	<div class="navbar-collapse collapse navbar-right">
         		<ul class="nav navbar-nav">
           			<li><a href='<s:url action="myCart"/>'>My Cart</a></li>
-          			<li><a href='<s:url action="addBookShow"/>'>Favorites</a></li>
+          			<li><a href='<s:url action="myFavorites"/>'>Favorites</a></li>
           			<li><a href='<s:url action="addBookShow"/>'>My Coupons</a></li>
           			<li><a href='<s:url action="addBookShow"/>'>Purchase Records</a></li>
           		</ul>
