@@ -67,6 +67,18 @@
 		</action>
 	</package>
 	
+	<package name="struts2-manager" extends="struts-default" namespace="/manager">
+		<action name="adminLogin" class="adminLoginAction">
+			<result name="success" type="chain">addBookShow</result>
+			<result name="input" type="redirect">/admin/login.jsp</result>
+		</action>
+		
+		<action name="userBar" class="userBarAction" method="adminBar">
+			<result name="logon">/admin/userBar.jsp</result>
+			<result name="notLogon">/admin/notLogonBar.jsp</result>
+		</action>
+	</package>
+	
 	
 </struts> 
 

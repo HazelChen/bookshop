@@ -33,6 +33,10 @@ public class User {
 		return role.customer();
 	}
 	
+	public boolean manager() {
+		return role.manager();
+	}
+	
 	@Id
 	public String getUsername() {
 		return username;

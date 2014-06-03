@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Calendar;
 
 
+
 import edu.nju.bookHouse.dao.UserDao;
 import edu.nju.bookHouse.model.Bank;
 import edu.nju.bookHouse.model.CustomerInfo;
@@ -62,6 +63,15 @@ public class UserService {
 		}
 	}
 	
+	public User managerLoginVerify(String username, String password) {
+		User user = loginVerify(username, password);
+		if (user != null && user.manager()) {
+			return user;
+		} else {
+			return null;
+		}
+	}
+	
 	private User loginVerify(String username, String password) {
 		User user = userDao.find(username);
 		if (user == null || !user.getPassword().equals(password)) {
@@ -81,6 +91,8 @@ public class UserService {
 	public void setDateChanger(DateChanger dateChanger) {
 		this.dateChanger = dateChanger;
 	}
+
+	
 	
 	
 }

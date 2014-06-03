@@ -26,6 +26,10 @@ public class Role {
 	public boolean admin() {
 		return this.id == 2;
 	}
+	
+	public boolean manager() {
+		return this.id == 3;
+	}
 
 	@Id
 	public int getId() {
