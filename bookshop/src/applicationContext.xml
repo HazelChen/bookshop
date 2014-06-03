@@ -13,7 +13,7 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     
     <!-- actions -->
-    <bean id="customerBarAction" class="edu.nju.bookHouse.action.CustomerBarAction">
+    <bean id="userBarAction" class="edu.nju.bookHouse.action.UserBarAction">
 	</bean>
 	
     <bean id="customerRegisterAction" class="edu.nju.bookHouse.action.CustomerRegisterAction">
@@ -28,6 +28,47 @@
 		</property>
 	</bean>
 	
+    <bean id="adminLoginAction" class="edu.nju.bookHouse.action.AdminLoginAction">
+    	<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
+    <bean id="homepageAction" class="edu.nju.bookHouse.action.HomepageAction">
+    	<property name="categoryService">
+			<ref bean="categoryService" />
+		</property>
+    	<property name="bookService">
+			<ref bean="bookService" />
+		</property>
+	</bean>
+	
+	<bean id="addBook" class="edu.nju.bookHouse.action.AddBookAction">
+    	<property name="categoryService">
+			<ref bean="categoryService" />
+		</property>
+		<property name="bookService">
+			<ref bean="bookService" />
+		</property>
+	</bean>
+	
+	<bean id="collectBookAction" class="edu.nju.bookHouse.action.CollectBookAction">
+    	<property name="collectedBookService">
+			<ref bean="collectedBookService" />
+		</property>
+	</bean>
+	
+	<bean id="bookInCartAction" class="edu.nju.bookHouse.action.AddBookToCartAction">
+    	<property name="bookInCartService">
+			<ref bean="bookInCartService" />
+		</property>
+	</bean>
+	
+	<bean id="myCartAction" class="edu.nju.bookHouse.action.MyCartAction">
+    	<property name="bookInCartService">
+			<ref bean="bookInCartService" />
+		</property>
+	</bean>
 	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
@@ -48,6 +89,32 @@
 		</property>
 	</bean>
 	
+    <bean id="categoryService" class="edu.nju.bookHouse.service.CategoryService">
+    	<property name="categoryDao">
+			<ref bean="categoryDao" />
+		</property>
+	</bean>
+	
+    <bean id="bookService" class="edu.nju.bookHouse.service.BookService">
+    	<property name="bookDao">
+			<ref bean="bookDao" />
+		</property>
+		<property name="dateChanger">
+			<ref bean="dateChanger" />
+		</property>
+	</bean>
+	
+	<bean id="collectedBookService" class="edu.nju.bookHouse.service.CollectedBookService">
+    	<property name="collectedBookDao">
+			<ref bean="collectedBookDao" />
+		</property>
+	</bean>
+	
+	<bean id="bookInCartService" class="edu.nju.bookHouse.service.BookInCartService">
+    	<property name="bookInCartDao">
+			<ref bean="bookInCartDao" />
+		</property>
+	</bean>
 	
 	<!-- other services -->
     <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
@@ -58,13 +125,36 @@
 	<bean id="daoHelper" class="edu.nju.bookHouse.dao.DaoHelper">
 	</bean>
 	
-	<bean id="userDao" class="edu.nju.bookHouse.dao.userDao">
+	<bean id="userDao" class="edu.nju.bookHouse.dao.UserDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>
 	</bean>
 	
 	<bean id="bankDao" class="edu.nju.bookHouse.dao.BankDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="categoryDao" class="edu.nju.bookHouse.dao.CategoryDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	<bean id="bookDao" class="edu.nju.bookHouse.dao.BookDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="collectedBookDao" class="edu.nju.bookHouse.dao.CollectedBookDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="bookInCartDao" class="edu.nju.bookHouse.dao.BookInCartDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>

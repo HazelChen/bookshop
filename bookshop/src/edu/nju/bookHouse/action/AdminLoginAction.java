@@ -3,8 +3,8 @@ package edu.nju.bookHouse.action;
 import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.service.UserService;
 
-public class CustomerLoginAction extends BaseAction{
-	private static final long serialVersionUID = 8124963048067029840L;
+public class AdminLoginAction extends BaseAction{
+	private static final long serialVersionUID = -2093645795785499476L;
 	
 	private UserService userService;
 	
@@ -13,10 +13,10 @@ public class CustomerLoginAction extends BaseAction{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		User customer = userService.customerLoginVerify(username, password);
+		User admin = userService.adminLoginVerify(username, password);
 		
-		if (customer != null) {
-			session.put("customer", customer);
+		if (admin != null) {
+			session.put("admin", admin);
 			return SUCCESS;
 		} else {
 			session.put("loginError", "用户名或密码错误。");
@@ -25,7 +25,7 @@ public class CustomerLoginAction extends BaseAction{
 	}
 	
 	public String logout() {
-		session.remove("customer");
+		session.remove("admin");
 		return SUCCESS;
 	}
 

@@ -7,14 +7,19 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="customerInfo")
 public class CustomerInfo {
-	private String id;
+	private int id;
 	private String gender;
 	private String address;
 	private Date birthday;
@@ -23,11 +28,20 @@ public class CustomerInfo {
 	
 	private Bank bank;
 	
-//	private Set<Book> booksBought = new HashSet<Book>();
-//	private Set<Book> booksInShoppingCart = new HashSet<Book>();
-//	private Set<Book> booksCollected = new HashSet<Book>();
+	private User user;
+	
+	private Set<Book> booksInShoppingCart = new HashSet<Book>();
+	private Set<Book> booksCollected = new HashSet<Book>();
+	private Set<OrderForm> orderForms = new HashSet<OrderForm>();
+	private Set<DiscountCoupons> discountCoupons = new HashSet<DiscountCoupons>();
+	private Set<EqualCoupons> equalCoupons = new HashSet<EqualCoupons>();
+	
 	
 	public CustomerInfo(){}
+	
+	public CustomerInfo(int id) {
+		this.id = id;
+	}
 	
 	public CustomerInfo(String gender, String address, Date birthDay, Date registerDay, Bank bank) {
 		this.gender = gender;
@@ -38,11 +52,12 @@ public class CustomerInfo {
 	}
 
 	@Id
-	public String getId() {
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public int getId() {
 		return id;
 	}
 	
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
@@ -87,30 +102,58 @@ public class CustomerInfo {
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
-//
-//	public Set<Book> getBooksBought() {
-//		return booksBought;
-//	}
-//
-//	public void setBooksBought(Set<Book> booksBought) {
-//		this.booksBought = booksBought;
-//	}
-//
-//	public Set<Book> getBooksInShoppingCart() {
-//		return booksInShoppingCart;
-//	}
-//
-//	public void setBooksInShoppingCart(Set<Book> booksInShoppingCart) {
-//		this.booksInShoppingCart = booksInShoppingCart;
-//	}
-//
-//	public Set<Book> getBooksCollected() {
-//		return booksCollected;
-//	}
-//
-//	public void setBooksCollected(Set<Book> booksCollected) {
-//		this.booksCollected = booksCollected;
-//	}
-//	
 	
+	@OneToOne(mappedBy = "customerInfo")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	@ManyToMany(mappedBy="customersPutCart", fetch=FetchType.EAGER)
+	public Set<Book> getBooksInShoppingCart() {
+		return booksInShoppingCart;
+	}
+
+	public void setBooksInShoppingCart(Set<Book> booksInShoppingCart) {
+		this.booksInShoppingCart = booksInShoppingCart;
+	}
+
+	@ManyToMany(mappedBy="customersCollectedIt", fetch=FetchType.EAGER)
+	public Set<Book> getBooksCollected() {
+		return booksCollected;
+	}
+
+	public void setBooksCollected(Set<Book> booksCollected) {
+		this.booksCollected = booksCollected;
+	}
+
+	@OneToMany(mappedBy="customerInfo",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<OrderForm> getOrderForms() {
+		return orderForms;
+	}
+
+	public void setOrderForms(Set<OrderForm> orders) {
+		this.orderForms = orders;
+	}
+	
+	@OneToMany(mappedBy="customerInfo",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<DiscountCoupons> getDiscountCoupons() {
+		return discountCoupons;
+	}
+
+	public void setDiscountCoupons(Set<DiscountCoupons> discountCoupons) {
+		this.discountCoupons = discountCoupons;
+	}
+
+	@OneToMany(mappedBy="customerInfo",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<EqualCoupons> getEqualCoupons() {
+		return equalCoupons;
+	}
+
+	public void setEqualCoupons(Set<EqualCoupons> equalCoupons) {
+		this.equalCoupons = equalCoupons;
+	}
 }

@@ -15,9 +15,20 @@
 		<property name="Connection.useUnicode">true </property>
 		<property name="connection.characterEncoding">utf-8</property>
 	
-		<mapping class="edu.nju.bookHouse.model.User"/>   
 		<mapping class="edu.nju.bookHouse.model.Bank"/>   
-		<mapping class="edu.nju.bookHouse.model.Role"/>   
+		<mapping class="edu.nju.bookHouse.model.Book"/>   
+		<mapping class="edu.nju.bookHouse.model.BookCollected"/>   
+		<mapping class="edu.nju.bookHouse.model.BookInCart"/>   
+		<mapping class="edu.nju.bookHouse.model.BuyBook"/>   
+		<mapping class="edu.nju.bookHouse.model.Category"/>   
 		<mapping class="edu.nju.bookHouse.model.CustomerInfo"/>   
+		<mapping class="edu.nju.bookHouse.model.DiscountCoupons"/>   
+		<mapping class="edu.nju.bookHouse.model.DiscountCouponsStandard"/>   
+		<mapping class="edu.nju.bookHouse.model.EqualCouponsStandard"/>   
+		<mapping class="edu.nju.bookHouse.model.EqualCoupons"/>   
+		<mapping class="edu.nju.bookHouse.model.OrderForm"/>   
+		<mapping class="edu.nju.bookHouse.model.User"/>   
+		<mapping class="edu.nju.bookHouse.model.Role"/>   
+		<mapping class="edu.nju.bookHouse.model.State"/>   
 	</session-factory>
 </hibernate-configuration>

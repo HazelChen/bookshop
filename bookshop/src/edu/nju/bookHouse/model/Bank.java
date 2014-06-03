@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Bank {
 	private String id;
 	private double balance;
-	private User user;
+	private CustomerInfo customerInfo;
 	
 	public Bank(){};
 	
@@ -35,10 +35,11 @@ public class Bank {
 	}
 	
 	@OneToOne(mappedBy = "bank")
-	public User getCustomer() {
-		return user;
+	public CustomerInfo getCustomerInfo() {
+		return customerInfo;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setCustomerInfo(CustomerInfo customerInfo) {
+		this.customerInfo = customerInfo;
 	}
 }

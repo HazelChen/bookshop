@@ -1,7 +1,5 @@
 package edu.nju.bookHouse.model;
 
-import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,21 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+/**
+ * book 和order的映射
+ */
 @Entity
-@Table(name="bookcollected")
-public class BookCollected {
+@Table(name="buybook")
+public class BuyBook {
 	private int id;
-	private CustomerInfo customerInfo;
+	private OrderForm orderForm;
 	private Book book;
-	private Date date;
-	
-	public BookCollected(){}
-	
-	public BookCollected(CustomerInfo customerInfo, Book book, Date date) {
-		this.customerInfo = customerInfo;
-		this.book = book;
-		this.date = date;
-	}
+	private int count;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,12 +30,12 @@ public class BookCollected {
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) 
-	@JoinColumn(name="customerInfoId")
-	public CustomerInfo getCustomerInfo() {
-		return customerInfo;
+	@JoinColumn(name="orderFormId")
+	public OrderForm getOrderForm() {
+		return orderForm;
 	}
-	public void setCustomerInfo(CustomerInfo customer) {
-		this.customerInfo = customer;
+	public void setOrderForm(OrderForm orderForm) {
+		this.orderForm = orderForm;
 	}
 	
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}) 
@@ -52,13 +46,11 @@ public class BookCollected {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	
-	public Date getDate() {
-		return date;
+	public int getCount() {
+		return count;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCount(int count) {
+		this.count = count;
 	}
-	
 	
 }
