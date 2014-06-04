@@ -8,15 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<%String path = request.getContextPath();
-		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/images/user/";
-		%>
-		
-		<a href="#" class="btn btn-primary">
-			<img src="<%=basePath %><s:property value="user.username" />.jpg" />
-			<span><s:property value="user.username" /></span>
-		</a>
-		
-		<a href='<s:url action="customerLogout"/>' class="btn btn-primary">注销</a>
+	<a href='<s:url action="customerLogout"/>' class="btn btn-primary">注销</a>
 </body>
 </html>

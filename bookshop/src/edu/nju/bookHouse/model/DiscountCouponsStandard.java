@@ -24,6 +24,12 @@ public class DiscountCouponsStandard {
 	
 	private Set <DiscountCoupons> discountCoupons = new HashSet<DiscountCoupons>();
 	
+	public DiscountCouponsStandard(){}
+	
+	public DiscountCouponsStandard(double discount) {
+		this.discount = discount;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {

@@ -7,7 +7,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
-	<a href="login.jsp" class="btn btn-primary navbar-btn">Sign in</a>         
-	<a href='<s:url value="register.jsp" />' class="btn btn-primary navbar-btn">Sign up</a>
 </body>
 </html>

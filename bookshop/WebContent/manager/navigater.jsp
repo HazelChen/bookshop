@@ -10,11 +10,11 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
         	<div class="navbar-header">
-				<a class="navbar-brand" class="active" href="setCoupons.jsp">Book House</a>
+				<a class="navbar-brand" class="active" href="<s:url action="setCoupons"/>">Book House</a>
         	</div>
         	<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-          			<li><a href='<s:url action="addBookShow"/>'>Set Coupons</a></li>
+          			<li><a href='<s:url action="setCoupons"/>'>Set Coupons</a></li>
           		</ul>
           		<div class="navbar-form navbar-right nav navbar-nav" >
           			<s:action name="userBar" executeResult="true"></s:action>

@@ -4,8 +4,9 @@ import java.util.List;
 
 import edu.nju.bookHouse.model.DiscountCouponsStandard;
 import edu.nju.bookHouse.model.EqualCouponsStandard;
+import edu.nju.bookHouse.service.CouponsService;
 
-public class SetCoupons extends BaseAction{
+public class SetCouponsAction extends BaseAction{
 	private static final long serialVersionUID = 2935135477086734036L;
 	
 	private List<EqualCouponsStandard> equalCouponsStandards;
@@ -30,4 +31,18 @@ public class SetCoupons extends BaseAction{
 		couponsService.addDiscountCouponsStandard(inputString);
 		return SUCCESS;
 	}
+
+	public List<EqualCouponsStandard> getEqualCouponsStandards() {
+		return equalCouponsStandards;
+	}
+
+	public List<DiscountCouponsStandard> getDiscountCouponsStandards() {
+		return discountCouponsStandards;
+	}
+
+	public void setCouponsService(CouponsService couponsService) {
+		this.couponsService = couponsService;
+	}
+	
+	
 }

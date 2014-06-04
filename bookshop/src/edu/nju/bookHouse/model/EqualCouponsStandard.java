@@ -20,6 +20,12 @@ public class EqualCouponsStandard {
 	
 	private Set<EqualCoupons> equalCoupons = new HashSet<EqualCoupons>();
 	
+	public EqualCouponsStandard(){}
+	
+	public EqualCouponsStandard(double equalValue) {
+		this.equalValue = equalValue;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {
