@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Add Book</title>
+<title>Add Book-Book House</title>
 
 <link rel="shortcut icon" href="<s:url value="/favicon.ico" />">
 	<link href="<s:url value="/css/bootstrap.min.css" />" rel="stylesheet">

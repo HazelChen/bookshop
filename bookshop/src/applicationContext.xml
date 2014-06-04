@@ -100,6 +100,15 @@
 		</property>
 	</bean>
 	
+	<bean id="checkoutAction" class="edu.nju.bookHouse.action.CheckoutAction">
+    	<property name="bookInCartService">
+			<ref bean="bookInCartService" />
+		</property>
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">

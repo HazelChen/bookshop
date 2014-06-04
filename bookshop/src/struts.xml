@@ -45,6 +45,10 @@
 			<result name="success">myFavorites.jsp</result>
 		</action>
 		
+		<action name="checkout" class="checkoutAction">
+			<result name="success">checkout.jsp</result>
+		</action>
+		
 	</package>
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">
