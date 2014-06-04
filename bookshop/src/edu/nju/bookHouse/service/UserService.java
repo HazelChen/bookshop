@@ -5,6 +5,8 @@ import java.util.Calendar;
 
 
 
+import java.util.List;
+
 import edu.nju.bookHouse.dao.UserDao;
 import edu.nju.bookHouse.model.Bank;
 import edu.nju.bookHouse.model.CustomerInfo;
@@ -29,6 +31,10 @@ public class UserService {
 		} else {
 			return true;
 		}
+	}
+	
+	public List<User> getAllCustomers() {
+		return userDao.getAllCustomers();
 	}
 	
 	public User addCustomer(String username, String password, String sex, String address, String birthdayString, String bankId) {
@@ -92,7 +98,8 @@ public class UserService {
 		this.dateChanger = dateChanger;
 	}
 
-	
-	
-	
+	public CustomerInfo getCustomerInfo(String customerId) {
+		int id = Integer.parseInt(customerId);
+		return userDao.findCustomerInfo(id);
+	}
 }

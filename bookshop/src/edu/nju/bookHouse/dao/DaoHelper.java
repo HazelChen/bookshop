@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.SimpleExpression;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
@@ -48,6 +49,20 @@ public class DaoHelper {
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List list = criteria.list();
 
+		session.close();
+		sessionFactory.close();
+		return list;
+	}
+	
+	public List find(Class className, Criterion criterion) {
+		SessionFactory sessionFactory = buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		
+		Criteria criteria = session.createCriteria(className);
+		criteria.add(criterion);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List list = criteria.list();
+		
 		session.close();
 		sessionFactory.close();
 		return list;

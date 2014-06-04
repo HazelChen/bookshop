@@ -69,7 +69,8 @@
 								<td width="15%"><h4>
 										<s:property value="bookInCarts[#st.index].count" />
 									</h4></td>
-								<td width="20%"><a class="btn btn-lg btn-warning"
+								<td width="20%">
+								<a class="btn btn-lg btn-warning"
 									href='bookInCart?bookId=<s:property value="id"/>'>Delete it</a></td>
 							</tr>
 						</s:iterator>

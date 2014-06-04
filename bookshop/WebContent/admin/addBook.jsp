@@ -28,9 +28,6 @@
 	
 	<div class="container">
 		<h1>Add Books</h1>
-		<%String failMsg = (String)session.getAttribute("registerError");
-		if (failMsg != null) {%>
-		<span class="error"><%=failMsg%></span><%} %>
 		<form method="post" action="addBook">
 			<div class="row">
 				<div class="col-md-6">

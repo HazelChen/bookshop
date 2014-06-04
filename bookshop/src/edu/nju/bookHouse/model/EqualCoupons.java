@@ -16,6 +16,13 @@ public class EqualCoupons {
 	private CustomerInfo customerInfo;
 	private OrderForm orderForm;
 	
+	public EqualCoupons(){}
+	
+	public EqualCoupons(EqualCouponsStandard standard, CustomerInfo customerInfo) {
+		this.standard = standard;
+		this.customerInfo = customerInfo;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {

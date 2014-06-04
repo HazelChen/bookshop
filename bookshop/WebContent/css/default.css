@@ -16,6 +16,10 @@ body {
 	margin-top: 20px;
 }
 
+.margin-left {
+	margin-left: 10px;
+}
+
 .error {
 	color: red;
 }

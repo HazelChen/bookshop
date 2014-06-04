@@ -65,6 +65,14 @@
 			<result name="logon">/admin/userBar.jsp</result>
 			<result name="notLogon">/admin/notLogonBar.jsp</result>
 		</action>
+		
+		<action name="sendCouponsShow" class="sendCouponsAction" method="show">
+			<result name="success">/admin/sendCoupons.jsp</result>
+		</action>
+		
+		<action name="sendCoupons" class="sendCouponsAction" method="send">
+			<result name="success" type="chain">sendCouponsShow</result>
+		</action>
 	</package>
 	
 	<package name="struts2-manager" extends="struts-default" namespace="/manager">

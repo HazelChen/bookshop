@@ -17,6 +17,13 @@ public class DiscountCoupons {
 	private CustomerInfo customerInfo;
 	private OrderForm orderForm;
 	
+	public DiscountCoupons() {}
+	
+	public DiscountCoupons(DiscountCouponsStandard standard, CustomerInfo customerInfo) {
+		this.standard = standard;
+		this.customerInfo = customerInfo;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {

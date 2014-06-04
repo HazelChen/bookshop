@@ -91,6 +91,15 @@
 		</property>
 	</bean>
 	
+	<bean id="sendCouponsAction" class="edu.nju.bookHouse.action.SendCouponsAction">
+		<property name="userService">
+			<ref bean="userService" />
+		</property>
+		<property name="couponsService">
+			<ref bean="couponsService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">
