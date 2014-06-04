@@ -77,8 +77,9 @@
 				<div class="right">
 				<label class="margin-top">Equal Coupons:</label>
 				<select name="category" class="selectpicker">
+   					<option>Not Use Now</option>
 					<s:iterator value="equalCoupons" status="status" id="inner">
-	   					<option><s:property value="equalValue"/></option>
+	   					<option><s:property value="standard.equalValue"/></option>
    					</s:iterator>
   				</select>
   				</div>
@@ -87,8 +88,9 @@
 				<div class="right">
 				<label class="margin-top">Discount Coupons:</label>
 				<select name="category" class="selectpicker">
+   					<option>Not Use Now</option>
 					<s:iterator value="discountCoupons" status="status" id="inner">
-	   					<option><s:property value="discount"/></option>
+	   					<option><s:property value="standard.discount"/></option>
    					</s:iterator>
   				</select>
   				</div>
