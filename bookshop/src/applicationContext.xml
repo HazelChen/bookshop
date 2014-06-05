@@ -130,6 +130,12 @@
 		</property>
 	</bean>
 	
+	<bean id="purchaseRecordAction" class="edu.nju.bookHouse.action.PurchaseRecordAction">
+		<property name="orderService">
+			<ref bean="orderService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">

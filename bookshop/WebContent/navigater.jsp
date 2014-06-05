@@ -17,7 +17,7 @@
           			<li><a href='<s:url action="myCart"/>'>My Cart</a></li>
           			<li><a href='<s:url action="myFavorites"/>'>Favorites</a></li>
           			<li><a href='<s:url action="myCoupons"/>'>My Coupons</a></li>
-          			<li><a href='<s:url action="addBookShow"/>'>Purchase Records</a></li>
+          			<li><a href='<s:url action="purchaseRecord"/>'>Purchase Records</a></li>
           		</ul>
           		<div class="navbar-form navbar-right nav navbar-nav" >
           			<s:action name="customerBar" executeResult="true"></s:action>

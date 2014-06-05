@@ -44,4 +44,8 @@ public class OrderService {
 	public void setOrderDao(OrderDao orderDao) {
 		this.orderDao = orderDao;
 	}
+
+	public List<OrderForm> getOrder(CustomerInfo customerInfo) {
+		return orderDao.getOrder(customerInfo);
+	}
 }

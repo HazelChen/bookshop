@@ -57,6 +57,10 @@
 			<result name="success">myCoupons.jsp</result>
 		</action>
 		
+		<action name="purchaseRecord" class="purchaseRecordAction">
+			<result name="success">purchaseRecord.jsp</result>
+		</action>
+		
 	</package>
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">
