@@ -44,9 +44,11 @@
 				<tbody>
 					<s:iterator value="orders" id="order">
 					<tr>
-						<td colspan="6">
-							<span class="label label-info"><s:property value="#order.confirmDate"/></span>
-							ID:<s:property value="#order.id"/>
+						<td colspan="6" bgcolor="#e2e2e2">
+							<div class="font-size-large">
+								<s:date format="yyyy-MM-dd" name="#order.confirmDate"/>
+									ID:<s:property value="#order.id"/>
+							</div>
 						</td>
 					</tr>
 					<s:iterator value="buyBooks" status="st" id="buybooks">

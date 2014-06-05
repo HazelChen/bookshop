@@ -21,7 +21,7 @@
 	<div class="container">
 		<h1>Set Coupons</h1>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<form method="post" action="addEqualCoupons">
 					<label class="margin-top">New Equal Coupns Value:</label>
 					<input type="text" class="form-control" name="equalCoupons" required autofocus>
@@ -33,7 +33,7 @@
     				</s:iterator>
 				</p>
 			</div>
-			<div class="col-md-6">
+			<div class="col-xs-6">
 				<form method="post" action="addDiscountCoupons">
 					<label class="margin-top">New Discount Coupns Value:</label>
 					<input type="text" class="form-control" name="discountCoupons" required autofocus>

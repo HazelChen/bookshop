@@ -58,7 +58,7 @@
 									<form action='sendCoupons'>
 									<input type="hidden" value='<s:property value="customerInfo.id"/>' name="customerId">
 									<div class="row">
-									<div class="col-md-4">
+									<div class="col-xs-4">
 									<select name="equalCoupons" class="selectpicker">
 				    					<option>equal coupons</option>
  										<s:iterator value="equalCouponsStandards" status="status" id="inner">
@@ -66,7 +66,7 @@
    										</s:iterator>
    									</select>
    									</div>
-   									<div class="col-md-4">
+   									<div class="col-xs-4">
 									<select name="discountCoupons" class="selectpicker">
 				    					<option>discount coupons</option>
  										<s:iterator value="discountCouponsStandards" status="status" id="inner">
@@ -74,7 +74,7 @@
    										</s:iterator>
   									</select>
   									</div>
-  									<div class="col-md-2 right">
+  									<div class="col-xs-2 right">
    										<button class="btn btn-sm btn-success btn-block" type="submit"> Send </button>
    										</div>
   									</div>

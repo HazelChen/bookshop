@@ -16,13 +16,13 @@
     <div class="jumbotron">
     	<div class="container">
     		<div class="row">
-    			<div class="col-md-8">
+    			<div class="col-xs-8">
     				<img src="../image/logo.png" width=250px height="250px">
     			</div>
     			<%String failMsg = (String)session.getAttribute("loginError");
 				if (failMsg != null) {%>
 				<span class="error"><%=failMsg%></span><%} %>
-    			<div class="col-md-4 pull-right">
+    			<div class="col-xs-4 pull-right">
     				<form class="form-signin" role="form" action="adminLogin" method="post">
         				<input type="text" class="form-control input-lg margin-top" name="username" placeholder="Your username" required autofocus>
         				<input type="password" class="form-control input-lg margin-top" name="password" placeholder="Your password" required>

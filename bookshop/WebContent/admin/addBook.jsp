@@ -30,7 +30,7 @@
 		<h1>Add Books</h1>
 		<form method="post" action="addBook">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-xs-6">
 					<label class="margin-top">Name:</label>
 					<input type="text" class="form-control" name="name" required autofocus>
 					<label class="margin-top">ISBN:</label>
@@ -45,7 +45,7 @@
 					<input type="text" class="form-control" name="price" required>
 				</div>
 				
-				<div class="col-md-6">
+				<div class="col-xs-6">
 					<label class="margin-top">Category:</label>
 					<br />
 					<select name="category" class="selectpicker bla bli">
@@ -61,7 +61,7 @@
 					<label class="margin-top">Description:</label>
 					<textarea class="form-control" rows="11" cols="30" name="description" id="paragraph"></textarea>
 					
-					<div class="margin-top right col-md-6">
+					<div class="margin-top right col-xs-6">
         				<button class="btn btn-lg btn-success btn-block" type="submit">Add a book</button>
         			</div>
 				</div>

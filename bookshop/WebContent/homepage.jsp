@@ -44,22 +44,22 @@
 			%>
 			<s:iterator value="books" status="st">
 			<div class="row margin_top_10">
-				<div class="col-md-3 margin_top_30">
+				<div class="col-xs-3 margin_top_30">
 					<div>
-						<img src='<%=basePath %><s:property value="id"/>.jpg'/>
+						<img src='<%=basePath %><s:property value="id"/>.jpg' width="200px" height="200px"/>
 					</div>
 				</div>
-				<div class="col-md-9">
+				<div class="col-xs-9">
 					<h3><s:property value="name"/></h3>
 					<ul class="list-group">
 						<li class="list-group-item">
-							<span class="label label-info">Author:</span><s:property value="author"/>
+							<span class="bold">Author:  </span><s:property value="author"/>
 						</li>
 						<li class="list-group-item">
-							<span class="label label-info">Press:</span><s:property value="press"/>
+							<span class="bold">Press:  </span><s:property value="press"/>
 						</li>
 						<li class="list-group-item">
-							<span class="label label-info">Price:</span><s:property value="price"/>
+							<span class="bold">Price:  </span><s:property value="price"/>
 						</li>
 						<li class="list-group-item">
 							<s:property value="description"/>

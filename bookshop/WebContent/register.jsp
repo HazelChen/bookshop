@@ -23,7 +23,7 @@
 		<span class="error"><%=failMsg%></span><%} %>
 		<form method="post" action="register">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-xs-6">
 					<label class="margin-top">Username:</label>
 					<input type="text" class="form-control" name="username" required autofocus>
 					<label class="margin-top">Password:</label>
@@ -32,15 +32,15 @@
         			<input type="password" class="form-control" name="repeatPassword" required>
 				</div>
 				
-				<div class="col-md-6">
+				<div class="col-xs-6">
 					<div class="row">
-					<div class="col-md-6">
+					<div class="col-xs-6">
 					<label class="margin-top">Gender:</label>
 					<br />
 					<label class="radio radio-inline"><input type="radio" name="sex" value="male" checked>male</label>
     				<label class="radio radio-inline"><input type="radio" name="sex" value="female">female</label>
     				</div>
-					<div class="col-md-6">
+					<div class="col-xs-6">
 					<label class="margin-top">Birthday:</label>
 					<input type="text" class="form-control" name="birthday" required onfocus="HS_setDate(this)">
     				</div>
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 			<div class="row margin-top">
-				<div class="col-md-4">
+				<div class="col-xs-4">
         			<button class="btn btn-lg btn-success btn-block" type="submit">Create an account</button>
         		</div>
         	</div>
