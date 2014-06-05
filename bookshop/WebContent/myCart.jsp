@@ -19,6 +19,9 @@
 	<s:include value="navigater.jsp" />
 
 	<div class="container">
+		<h1>My Chart</h1>
+	</div>
+	<div class="container">
 		<%
 			String path = request.getContextPath();
 			String basePath = request.getScheme() + "://"

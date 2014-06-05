@@ -53,6 +53,10 @@
 			<result name="success" type="chain">homepage</result>
 		</action>
 		
+		<action name="myCoupons" class="myCouponsAction">
+			<result name="success">myCoupons.jsp</result>
+		</action>
+		
 	</package>
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">

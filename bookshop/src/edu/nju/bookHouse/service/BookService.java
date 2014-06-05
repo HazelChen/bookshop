@@ -5,6 +5,7 @@ import java.util.List;
 
 import edu.nju.bookHouse.dao.BookDao;
 import edu.nju.bookHouse.model.Book;
+import edu.nju.bookHouse.model.BookInCart;
 import edu.nju.bookHouse.model.Category;
 
 public class BookService {
@@ -38,5 +39,14 @@ public class BookService {
 
 	public void setDateChanger(DateChanger dateChanger) {
 		this.dateChanger = dateChanger;
+	}
+
+	public void reduceInventory(List<BookInCart> bookInCarts) {
+		for (BookInCart bookInCart : bookInCarts) {
+			Book book = bookInCart.getBook();
+			int newCount = book.getCount() - bookInCart.getCount();
+			book.setCount(newCount);
+			bookDao.update(book);
+		}
 	}
 }

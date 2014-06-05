@@ -119,6 +119,15 @@
     	<property name="bookInCartService">
 			<ref bean="bookInCartService" />
 		</property>
+		<property name="bookService">
+			<ref bean="bookService" />
+		</property>
+	</bean>
+	
+	<bean id="myCouponsAction" class="edu.nju.bookHouse.action.MyCouponsAction">
+		<property name="couponsService">
+			<ref bean="couponsService" />
+		</property>
 	</bean>
 	
 	<!-- services -->

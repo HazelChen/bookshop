@@ -1,7 +1,12 @@
 package edu.nju.bookHouse.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
+
+import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.DiscountCoupons;
 import edu.nju.bookHouse.model.DiscountCouponsStandard;
 import edu.nju.bookHouse.model.EqualCoupons;
@@ -54,5 +59,21 @@ public class CouponsDao {
 	
 	public DiscountCoupons getDiscountCoupons(int id) {
 		return (DiscountCoupons) daoHelper.findById(DiscountCoupons.class, id);
+	}
+	
+	public List<EqualCoupons> getEqualCoupons(CustomerInfo customerInfo) {
+		ArrayList<SimpleExpression> expressions = new ArrayList<SimpleExpression>();
+		expressions.add(Restrictions.eq("customerInfo", customerInfo));
+		@SuppressWarnings("unchecked")
+		List<EqualCoupons> equalCoupons = daoHelper.find(EqualCoupons.class, expressions);
+		return equalCoupons;
+	}
+	
+	public List<DiscountCoupons> getDiscountCoupons(CustomerInfo customerInfo) {
+		ArrayList<SimpleExpression> expressions = new ArrayList<SimpleExpression>();
+		expressions.add(Restrictions.eq("customerInfo", customerInfo));
+		@SuppressWarnings("unchecked")
+		List<DiscountCoupons> equalCoupons = daoHelper.find(DiscountCoupons.class, expressions);
+		return equalCoupons;
 	}
 }

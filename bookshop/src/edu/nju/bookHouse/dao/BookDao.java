@@ -24,4 +24,8 @@ public class BookDao {
 	public void add(Book book) {
 		daoHelper.save(book);
 	}
+
+	public void update(Book book) {
+		daoHelper.update(book);
+	}
 }

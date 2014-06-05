@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Favorites</title>
+<title>Favorites-Book House</title>
 <link rel="shortcut icon" href="<s:url value="/favicon.ico" />">
 <link href="<s:url value="/css/bootstrap.min.css" />" rel="stylesheet">
 <link href="<s:url value="/css/default.css" />" rel="stylesheet">
@@ -16,6 +16,10 @@
 </head>
 <body>
 	<s:include value="navigater.jsp" />
+
+	<div class="container">
+		<h1>My Favorites</h1>
+	</div>
 
 	<div class="container">
 		<%

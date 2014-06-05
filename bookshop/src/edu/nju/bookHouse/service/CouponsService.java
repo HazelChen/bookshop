@@ -73,4 +73,12 @@ public class CouponsService {
 		DiscountCoupons discountCoupons = couponsDao.getDiscountCoupons(id);
 		return discountCoupons;
 	}
+	
+	public List<EqualCoupons> getEqualCoupons(CustomerInfo customerInfo) {
+		return couponsDao.getEqualCoupons(customerInfo);
+	}
+	
+	public List<DiscountCoupons> getDiscountCoupons(CustomerInfo customerInfo) {
+		return couponsDao.getDiscountCoupons(customerInfo);
+	}
 }
