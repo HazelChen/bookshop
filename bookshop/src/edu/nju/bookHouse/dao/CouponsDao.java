@@ -32,11 +32,11 @@ public class CouponsDao {
 		this.daoHelper = daoHelper;
 	}
 
-	public EqualCouponsStandard getEqualCoupons(int equalId) {
+	public EqualCouponsStandard getEqualCouponsStandard(int equalId) {
 		return (EqualCouponsStandard) daoHelper.findById(EqualCouponsStandard.class, equalId);
 	}
 	
-	public DiscountCouponsStandard getDiscountCoupons(int discountId) {
+	public DiscountCouponsStandard getDiscountCouponsStandard(int discountId) {
 		return (DiscountCouponsStandard) daoHelper.findById(DiscountCouponsStandard.class, discountId);
 	}
 
@@ -46,5 +46,13 @@ public class CouponsDao {
 	
 	public void addDiscountCoupons(DiscountCoupons coupons) {
 		daoHelper.save(coupons);
+	}
+
+	public EqualCoupons getEqualCoupons(int id) {
+		return (EqualCoupons) daoHelper.findById(EqualCoupons.class, id);
+	}
+	
+	public DiscountCoupons getDiscountCoupons(int id) {
+		return (DiscountCoupons) daoHelper.findById(DiscountCoupons.class, id);
 	}
 }

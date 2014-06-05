@@ -49,6 +49,10 @@
 			<result name="success">checkout.jsp</result>
 		</action>
 		
+		<action name="buyBook" class="buyBookAction">
+			<result name="success" type="chain">homepage</result>
+		</action>
+		
 	</package>
 	
 	<package name="struts2-admin" extends="struts-default" namespace="/admin">

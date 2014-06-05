@@ -42,14 +42,14 @@ public class CouponsService {
 	public void send(String equalString, String discountString, CustomerInfo customerInfo) {
 		if (!equalString.equals(EQUAL_NOT_ADDED_STRING)) {
 			int equalId = getCouponsIdFromSend(equalString);
-			EqualCouponsStandard standard = couponsDao.getEqualCoupons(equalId);
+			EqualCouponsStandard standard = couponsDao.getEqualCouponsStandard(equalId);
 			EqualCoupons equalCoupons = new EqualCoupons(standard, customerInfo);
 			couponsDao.addEqualCoupons(equalCoupons);
 		}
 		
 		if (!discountString.equals(DISCOUNT_NOT_ADDED_STRING)) {
 			int discountId = getCouponsIdFromSend(discountString);
-			DiscountCouponsStandard standard = couponsDao.getDiscountCoupons(discountId);
+			DiscountCouponsStandard standard = couponsDao.getDiscountCouponsStandard(discountId);
 			DiscountCoupons discountCoupons = new DiscountCoupons(standard, customerInfo);
 			couponsDao.addDiscountCoupons(discountCoupons);
 		}
@@ -60,5 +60,17 @@ public class CouponsService {
 		String rightString = couponString.substring(1, delimiterIndex);
 		int id = Integer.parseInt(rightString);
 		return id;
+	}
+
+	public EqualCoupons getEqualCoupons(String equalId) {
+		int id = Integer.parseInt(equalId);
+		EqualCoupons equalCoupons = couponsDao.getEqualCoupons(id);
+		return equalCoupons;
+	}
+	
+	public DiscountCoupons getDiscountCoupons(String discountId) {
+		int id = Integer.parseInt(discountId);
+		DiscountCoupons discountCoupons = couponsDao.getDiscountCoupons(id);
+		return discountCoupons;
 	}
 }

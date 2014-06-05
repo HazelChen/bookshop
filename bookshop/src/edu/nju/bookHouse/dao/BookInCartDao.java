@@ -38,4 +38,17 @@ public class BookInCartDao{
 	public void setDaoHelper(DaoHelper daoHelper) {
 		this.daoHelper = daoHelper;
 	}
+
+	public List<BookInCart> find(CustomerInfo customerInfo) {
+		ArrayList<SimpleExpression> expressions = new ArrayList<SimpleExpression>();
+		expressions.add(Restrictions.eq("customerInfo", customerInfo));
+		
+		@SuppressWarnings("unchecked")
+		List<BookInCart> bookInCarts = daoHelper.find(BookInCart.class, expressions);
+		return bookInCarts;
+	}
+
+	public void remove(BookInCart bookInCart) {
+		daoHelper.remove(bookInCart);
+	}
 }

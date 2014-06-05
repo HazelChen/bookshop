@@ -109,6 +109,18 @@
 		</property>
 	</bean>
 	
+	<bean id="buyBookAction" class="edu.nju.bookHouse.action.BuyBookAction">
+		<property name="orderService">
+			<ref bean="orderService" />
+		</property>
+		<property name="couponsService">
+			<ref bean="couponsService" />
+		</property>
+    	<property name="bookInCartService">
+			<ref bean="bookInCartService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">
@@ -161,6 +173,12 @@
 		</property>
 	</bean>
 	
+	<bean id="orderService" class="edu.nju.bookHouse.service.OrderService">
+    	<property name="orderDao">
+			<ref bean="orderDao" />
+		</property>
+	</bean>
+	
 	<!-- other services -->
     <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
 	</bean>
@@ -206,6 +224,12 @@
 	</bean>
 	
 	<bean id="couponsDao" class="edu.nju.bookHouse.dao.CouponsDao">
+    	<property name="daoHelper">
+			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="orderDao" class="edu.nju.bookHouse.dao.OrderDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
 		</property>

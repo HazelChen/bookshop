@@ -3,6 +3,7 @@ package edu.nju.bookHouse.service;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import edu.nju.bookHouse.dao.BookInCartDao;
 import edu.nju.bookHouse.model.Book;
@@ -31,10 +32,6 @@ public class BookInCartService {
 		
 	}
 
-	public void setBookInCartDao(BookInCartDao bookInCartDao) {
-		this.bookInCartDao = bookInCartDao;
-	}
-
 	public ArrayList<BookInCart> getBookInCarts(int customerInfoid,
 			ArrayList<Book> cartBooks) {
 		ArrayList<BookInCart> bookInCarts = new ArrayList<BookInCart>();
@@ -53,5 +50,21 @@ public class BookInCartService {
 			totalPrice += book.getPrice() * bookInCart.getCount();
 		}
 		return totalPrice;
+	}
+	
+	public void setBookInCartDao(BookInCartDao bookInCartDao) {
+		this.bookInCartDao = bookInCartDao;
+	}
+
+	public List<BookInCart> getBookInCarts(CustomerInfo customerInfo) {
+		List<BookInCart> bookInCarts = bookInCartDao.find(customerInfo);
+		return bookInCarts;
+	}
+
+	public void clear(CustomerInfo customerInfo) {
+		List<BookInCart> bookInCarts = bookInCartDao.find(customerInfo);
+		for(BookInCart bookInCart : bookInCarts) {
+			bookInCartDao.remove(bookInCart);
+		}
 	}
 }

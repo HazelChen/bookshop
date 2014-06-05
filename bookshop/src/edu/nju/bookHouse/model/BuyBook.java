@@ -18,7 +18,17 @@ public class BuyBook {
 	private int id;
 	private OrderForm orderForm;
 	private Book book;
+	private double singlePrice;
 	private int count;
+	
+	public BuyBook(){}
+	
+	public BuyBook(Book book, int count, OrderForm orderForm) {
+		this.book = book;
+		this.singlePrice = book.getPrice();
+		this.count = count;
+		this.orderForm = orderForm;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -51,6 +61,14 @@ public class BuyBook {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+
+	public double getSinglePrice() {
+		return singlePrice;
+	}
+
+	public void setSinglePrice(double singlePrice) {
+		this.singlePrice = singlePrice;
 	}
 	
 }

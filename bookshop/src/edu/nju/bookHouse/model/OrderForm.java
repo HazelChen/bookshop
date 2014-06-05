@@ -25,11 +25,24 @@ public class OrderForm {
 	private Date sendDate;
 	private Date receiveDate;
 	
+	private double price;
+	
 	private CustomerInfo customerInfo;
 	
 	private Set<BuyBook> buyBooks = new HashSet<BuyBook>();
 	private Set<DiscountCoupons> discountCoupons = new HashSet<DiscountCoupons>();
 	private Set<EqualCoupons> equalCoupons = new HashSet<EqualCoupons>();
+	
+	public OrderForm(){}
+	
+	public OrderForm(Date confirmDate, CustomerInfo customerInfo, double price,Set<DiscountCoupons> discountCoupons, Set<EqualCoupons> equalCoupons) {
+		this.state = State.CONFIRM;
+		this.confirmDate = confirmDate;
+		this.customerInfo = customerInfo;
+		this.price = price;
+		this.discountCoupons = discountCoupons;
+		this.equalCoupons = equalCoupons;
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -109,6 +122,12 @@ public class OrderForm {
 	public void setEqualCoupons(Set<EqualCoupons> equalCoupons) {
 		this.equalCoupons = equalCoupons;
 	}
-	
-	
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 }

@@ -7,17 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="<s:url value="/favicon.ico" />">
 <link href="<s:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<s:url value="/css/bootstrap-select.css" />" rel="stylesheet">
 <link href="<s:url value="/css/default.css" />" rel="stylesheet">
 	
 <script src=<s:url value="/js/jquery-2.1.0.js" /> type="text/javascript"></script>
 <script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
-<script src=<s:url value="/js/bootstrap-select.min.js" /> type="text/javascript"></script>
-<script type="text/javascript">
-	$(window).on('load', function () {
-		$('.selectpicker').selectpicker();
-	});
-</script>
+<script src=<s:url value="/js/checkout.js" /> type="text/javascript"></script>
 <title>Checkout-Book House</title>
 </head>
 <body>
@@ -72,14 +66,16 @@
 			
 		</div>
 		
+		<form action="buyBook" method="post">
+		<input type="hidden" id="totalPrice" value='<s:property value="totalPrice" />' name="totalPrice">
 		<div class="container">
 			<div class="row">
 				<div class="right">
 				<label class="margin-top">Equal Coupons:</label>
-				<select name="category" class="selectpicker">
+				<select id="equalSelect" name="equalSelect">
    					<option>Not Use Now</option>
 					<s:iterator value="equalCoupons" status="status" id="inner">
-	   					<option><s:property value="standard.equalValue"/></option>
+	   					<option value='<s:property value="id"/>'><s:property value="standard.equalValue"/></option>
    					</s:iterator>
   				</select>
   				</div>
@@ -87,25 +83,24 @@
 			<div class="row">
 				<div class="right">
 				<label class="margin-top">Discount Coupons:</label>
-				<select name="category" class="selectpicker">
+				<select id="discountSelect" name="discountSelect">
    					<option>Not Use Now</option>
 					<s:iterator value="discountCoupons" status="status" id="inner">
-	   					<option><s:property value="standard.discount"/></option>
+	   					<option value='<s:property value="id"/>'><s:property value="standard.discount"/></option>
    					</s:iterator>
   				</select>
   				</div>
 			</div>
 			
 			<div class="row">
-			<h1 class="right">
-				Total:
-				<s:property value="totalPrice" />
+			<h1 id="price" class="right">Total:<s:property value="totalPrice" />
 			</h1>
 			</div>
 			<div class="row">
-			<a class="btn btn-lg btn-success right" href='bookInCart?bookId=<s:property value="id"/>'>OK</a>
+				<button class="btn btn-lg btn-success right" type="submit">OK</button>
 			</div>
 		</div>
+		</form>
 	</div>
 </body>
 </html>
