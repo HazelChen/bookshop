@@ -62,7 +62,7 @@ public class DaoHelper {
 		criteria.add(criterion);
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List list = criteria.list();
-		
+		 
 		session.close();
 		sessionFactory.close();
 		return list;
@@ -99,6 +99,16 @@ public class DaoHelper {
 		session.close();
 		sessionFactory.close();
 	}
+	
+	public void updateNotMerge(Object object) {
+		SessionFactory sessionFactory = buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.update(object);
+		transaction.commit();
+		session.close();
+		sessionFactory.close();
+	}
 
 	public void remove(Object object) {
 		SessionFactory sessionFactory = buildSessionFactory();
@@ -111,6 +121,11 @@ public class DaoHelper {
 	}
 
 	private SessionFactory buildSessionFactory() {
+//		Configuration configuration = new Configuration();
+//        configuration.configure("hibernate.cfg.xml");
+//        StandardServiceRegistryBuilder ssrb = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+//        SessionFactory sessionFactory = configuration.buildSessionFactory(ssrb.build());
+//		return sessionFactory;
 		Configuration config = new Configuration().configure();
 		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
 				.applySettings(config.getProperties()).buildServiceRegistry();

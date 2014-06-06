@@ -8,6 +8,7 @@ import edu.nju.bookHouse.model.DiscountCoupons;
 import edu.nju.bookHouse.model.DiscountCouponsStandard;
 import edu.nju.bookHouse.model.EqualCoupons;
 import edu.nju.bookHouse.model.EqualCouponsStandard;
+import edu.nju.bookHouse.model.OrderForm;
 
 public class CouponsService {
 	private static final String EQUAL_NOT_ADDED_STRING = "equal coupons";
@@ -80,5 +81,17 @@ public class CouponsService {
 	
 	public List<DiscountCoupons> getDiscountCoupons(CustomerInfo customerInfo) {
 		return couponsDao.getDiscountCoupons(customerInfo);
+	}
+
+	public void useEqualCoupons(EqualCoupons equalCoupons, OrderForm orderForm) {
+		equalCoupons.setCustomerInfo(null);
+		equalCoupons.setOrderForm(orderForm);
+		couponsDao.update(equalCoupons);
+	}
+	
+	public void useDiscountCoupons(DiscountCoupons discountCoupons, OrderForm orderForm) {
+		discountCoupons.setCustomerInfo(null);
+		discountCoupons.setOrderForm(orderForm);
+		couponsDao.update(discountCoupons);
 	}
 }

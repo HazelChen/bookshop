@@ -35,13 +35,11 @@ public class OrderForm {
 	
 	public OrderForm(){}
 	
-	public OrderForm(Date confirmDate, CustomerInfo customerInfo, double price,Set<DiscountCoupons> discountCoupons, Set<EqualCoupons> equalCoupons) {
+	public OrderForm(Date confirmDate, CustomerInfo customerInfo, double price) {
 		this.state = State.CONFIRM;
 		this.confirmDate = confirmDate;
 		this.customerInfo = customerInfo;
 		this.price = price;
-		this.discountCoupons = discountCoupons;
-		this.equalCoupons = equalCoupons;
 	}
 	
 	@Id

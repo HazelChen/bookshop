@@ -76,4 +76,12 @@ public class CouponsDao {
 		List<DiscountCoupons> equalCoupons = daoHelper.find(DiscountCoupons.class, expressions);
 		return equalCoupons;
 	}
+
+	public void update(EqualCoupons equalCoupons) {
+		daoHelper.updateNotMerge(equalCoupons);
+	}
+	
+	public void update(DiscountCoupons discountCoupons) {
+		daoHelper.updateNotMerge(discountCoupons);
+	}
 }

@@ -8,8 +8,9 @@ $(document).ready(function(){
 				$("#totalPrice").val(price);
 			} else {
 				var newPrice = price - equalValue;
-				$("#price").text("Total:" + newPrice);
-				$("#totalPrice").val(newPrice);
+				var result = Math.round(newPrice*100)/100;
+				$("#price").text("Total:" + result);
+				$("#totalPrice").val(result);
 			}
 	});
 	
@@ -21,8 +22,9 @@ $(document).ready(function(){
 			$("#totalPrice").val(price);
 		} else {
 			var newPrice = price * discount;
-			$("#price").text("Total:" + newPrice);
-			$("#totalPrice").val(newPrice);
+			var result = Math.round(newPrice*100)/100;
+			$("#price").text("Total:" + result);
+			$("#totalPrice").val(result);
 		}
 	});
 });

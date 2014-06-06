@@ -7,6 +7,7 @@ import edu.nju.bookHouse.model.BookInCart;
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.DiscountCoupons;
 import edu.nju.bookHouse.model.EqualCoupons;
+import edu.nju.bookHouse.model.OrderForm;
 import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.service.BookInCartService;
 import edu.nju.bookHouse.service.BookService;
@@ -25,18 +26,6 @@ public class BuyBookAction extends BaseAction{
 	
 	@Override
 	public String execute() {
-		//获得提交的券
-		EqualCoupons equalCoupons = null;
-		String equalSelected = request.getParameter("equalSelect");
-		if (!equalSelected.equals(NOT_USE_STRING)) {
-			equalCoupons = couponsService.getEqualCoupons(equalSelected);
-		}
-		DiscountCoupons discountCoupons = null;
-		String discountSelected = request.getParameter("discountSelect");
-		if (!discountSelected.equals(NOT_USE_STRING)) {
-			discountCoupons = couponsService.getDiscountCoupons(discountSelected);
-		}
-
 		//获得购物车信息
 		User user = (User) session.get("customer");
 		CustomerInfo customerInfo = user.getCustomerInfo();
@@ -47,10 +36,25 @@ public class BuyBookAction extends BaseAction{
 		
 		//下订单
 		String totalPrice = request.getParameter("totalPrice");
-		orderService.takeAOrder(customerInfo, bookInCarts, equalCoupons, discountCoupons, totalPrice);
+		OrderForm orderForm = orderService.takeAOrder(customerInfo, bookInCarts, totalPrice);
 		
 		//清空购物车
 		bookInCartService.clear(customerInfo);
+		
+		//修改购物券信息
+		EqualCoupons equalCoupons = null;
+		String equalSelected = request.getParameter("equalSelect");
+		if (!equalSelected.equals(NOT_USE_STRING)) {
+			equalCoupons = couponsService.getEqualCoupons(equalSelected);
+			couponsService.useEqualCoupons(equalCoupons, orderForm);
+		}
+		DiscountCoupons discountCoupons = null;
+		String discountSelected = request.getParameter("discountSelect");
+		if (!discountSelected.equals(NOT_USE_STRING)) {
+			discountCoupons = couponsService.getDiscountCoupons(discountSelected);
+			couponsService.useDiscountCoupons(discountCoupons, orderForm);
+		}
+		
 		return SUCCESS;
 	}
 
