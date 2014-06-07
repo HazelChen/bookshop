@@ -1,17 +1,24 @@
 package edu.nju.bookHouse.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 
 
 
+import java.util.Iterator;
 import java.util.List;
 
+import edu.nju.bookHouse.dao.DaoHelper;
 import edu.nju.bookHouse.dao.UserDao;
 import edu.nju.bookHouse.model.Bank;
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.Role;
 import edu.nju.bookHouse.model.User;
+import edu.nju.bookHouse.model.UserAddress;
+import edu.nju.bookHouse.model.UserAge;
+import edu.nju.bookHouse.model.UserGender;
+import edu.nju.healthClub.model.MemberAgeStatistics;
 
 public class UserService {
 	private BankService bankService;
@@ -102,4 +109,70 @@ public class UserService {
 		int id = Integer.parseInt(customerId);
 		return userDao.findCustomerInfo(id);
 	}
+	
+	public void analyse() {
+		userDao.removeAllStatics();
+		analyseAddress();
+		analyseAge();
+		analyseGender();
+		userDao.analuseMonthAdd();
+	}
+
+	private void analyseGender() {
+		int maleCount = (int) userDao.getMaleCount();
+		int femaleCount = (int) userDao.getFemaleCount();
+		int total = maleCount + femaleCount;
+		
+		UserGender userGender
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void analyseAge() {
+		Calendar nowCalendar = Calendar.getInstance();
+		List<UserAge> userAges = new ArrayList<UserAge>();
+		double totalCount = 0;
+		for (int i = 0; i < 5; i++) {
+			Date maxYearDate = nowCalendar.getTime();
+			nowCalendar.add(Calendar.YEAR, -20);
+			Date minYearDate = nowCalendar.getTime();
+			String maxYear = dateChanger.normalDateToString(maxYearDate);
+			String minYear = dateChanger.normalDateToString(minYearDate);
+			int count = (int) userDao.getAgeCount(minYear, maxYear);
+			UserAge userAge = new UserAge(i * 20+ "-" + (i + 1) * 20, count);
+			userAges.add(userAge);
+			totalCount += count;
+		}
+		
+		for (UserAge userAge : userAges) {
+			double percentage = (userAge.getCount() + 0.0) / totalCount;
+			userAge.setPercentage(percentage);
+			userDao.add(userAge);
+		}
+	}
+
+	private void analyseAddress() {
+		List<Object[]> list = userDao.getUserAddressObject();
+		
+		int totalCount = 0;
+		List<UserAddress> userAddresses = new ArrayList<UserAddress>();
+		for (Iterator<Object[]> iterator = list.iterator();iterator.hasNext();) {
+			Object[] object = (Object[])iterator.next();
+			String place = (String)object[0];
+			int provinceIndex = place.indexOf("省");
+			String address = place.substring(0, provinceIndex);
+			long count = (Long)object[1];
+			totalCount += count;
+			UserAddress userAddress = new UserAddress(address, (int)count);
+			userAddresses.add(userAddress);
+		}
+		
+		for (UserAddress userAddress : userAddresses) {
+			double percentage = (userAddress.getCount() + 0.0) / totalCount;
+			userAddress.setPercentage(percentage);
+			userDao.add(userAddress);
+		}
+	}
+	
+	
 }

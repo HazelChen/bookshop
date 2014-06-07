@@ -137,6 +137,14 @@ public class StaticsDaoHelper {
 		sessionFactory.close();
 		return list;
 	}
+	
+	public void deleteAll(String modelName) {
+		SessionFactory sessionFactory = buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.delete("from " + modelName);
+		session.close();
+		sessionFactory.close();
+	}
 
 	private SessionFactory buildSessionFactory() {
 		Configuration config = new Configuration().configure("/analyse.cfg.xml");

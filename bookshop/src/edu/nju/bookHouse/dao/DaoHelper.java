@@ -23,7 +23,7 @@ public class DaoHelper {
 
 		Query query = session.createQuery(hql);
 		List list = query.list();
-
+		
 		session.close();
 		sessionFactory.close();
 		return list;

@@ -21,4 +21,10 @@ public class DateChanger {
 		}
 		return date;
 	}
+	
+	public String normalDateToString (Date date) {
+		SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
+		String dateString = sdf.format(date);
+		return dateString;
+	}
 }
