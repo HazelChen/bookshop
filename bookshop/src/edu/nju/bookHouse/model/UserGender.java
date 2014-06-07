@@ -11,6 +11,14 @@ public class UserGender {
 	private int count;
 	private double percentage;
 	
+	public UserGender(){}
+	
+	public UserGender(String gender, int count, double percentage) {
+		this.gender = gender;
+		this.count = count;
+		this.percentage = percentage;
+	}
+	
 	@Id
 	public String getGender() {
 		return gender;
