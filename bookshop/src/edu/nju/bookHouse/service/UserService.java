@@ -122,8 +122,13 @@ public class UserService {
 		int maleCount = (int) userDao.getMaleCount();
 		int femaleCount = (int) userDao.getFemaleCount();
 		int total = maleCount + femaleCount;
+		double malePercentage = (maleCount + 0.0) / total;
+		double femalePercentage = (femaleCount + 0.0) / total;
 		
-		UserGender userGender
+		UserGender maleUserGender = new UserGender("Male", maleCount, malePercentage);
+		UserGender femaleUserGender = new UserGender("Female", femaleCount, femaleCount);
+		
+		userDao.a
 		// TODO Auto-generated method stub
 		
 	}
