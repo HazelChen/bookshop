@@ -12,6 +12,7 @@ import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.model.UserAddress;
 import edu.nju.bookHouse.model.UserAge;
+import edu.nju.bookHouse.model.UserGender;
 
 public class UserDao {
 	private DaoHelper daoHelper;
@@ -90,5 +91,9 @@ public class UserDao {
 			return 0;
 		}
 		return list.get(0);
+	}
+	
+	public void add(UserGender userGender) {
+		sDaoHelper.save(userGender);
 	}
 }

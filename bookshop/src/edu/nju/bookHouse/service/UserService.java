@@ -128,9 +128,8 @@ public class UserService {
 		UserGender maleUserGender = new UserGender("Male", maleCount, malePercentage);
 		UserGender femaleUserGender = new UserGender("Female", femaleCount, femaleCount);
 		
-		userDao.a
-		// TODO Auto-generated method stub
-		
+		userDao.add(maleUserGender);
+		userDao.add(femaleUserGender);
 	}
 
 	private void analyseAge() {
