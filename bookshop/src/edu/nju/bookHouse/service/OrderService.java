@@ -9,6 +9,7 @@ import edu.nju.bookHouse.model.BookInCart;
 import edu.nju.bookHouse.model.BuyBook;
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.OrderForm;
+import edu.nju.bookHouse.model.State;
 
 public class OrderService {
 	private OrderDao orderDao;
@@ -35,4 +36,32 @@ public class OrderService {
 	public List<OrderForm> getOrder(CustomerInfo customerInfo) {
 		return orderDao.getOrder(customerInfo);
 	}
+
+	public List<OrderForm> getOrder(State state) {
+		return orderDao.getOrder(state);
+	}
+
+	public void changeStateToDistribute(String orderId) {
+		int id = Integer.parseInt(orderId);
+		OrderForm orderForm = orderDao.find(id);
+		orderForm.setState(State.DISTRIBUTE);
+		
+		Date today = Calendar.getInstance().getTime();
+		orderForm.setDistributeDate(today);
+		
+		orderDao.update(orderForm);
+	}
+
+	public void changeStateToSend(String orderId) {
+		int id = Integer.parseInt(orderId);
+		OrderForm orderForm = orderDao.find(id);
+		orderForm.setState(State.SEND);
+		
+		Date today = Calendar.getInstance().getTime();
+		orderForm.setSendDate(today);
+		
+		orderDao.update(orderForm);
+	}
+	
+	
 }

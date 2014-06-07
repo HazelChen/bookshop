@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -51,8 +52,8 @@ public class User {
 		this.password = password;
 	}
 	
-	@OneToOne(optional = false, cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name = "role")
+	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="role")
 	public Role getRole() {
 		return role;
 	}

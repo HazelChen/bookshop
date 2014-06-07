@@ -136,6 +136,12 @@
 		</property>
 	</bean>
 	
+	<bean id="setStateAction" class="edu.nju.bookHouse.action.ChangeStateAction">
+		<property name="orderService">
+			<ref bean="orderService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">

@@ -1,7 +1,12 @@
 package edu.nju.bookHouse.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -10,7 +15,7 @@ import javax.persistence.Table;
 public class Role {
 	private int id;
 	private String type;
-	private User user;
+	private Set<User> users;
 	
 	public Role(){}
 	
@@ -45,14 +50,15 @@ public class Role {
 		this.type = type;
 	}
 
-	@OneToOne(mappedBy = "role")
-	public User getUser() {
-		return user;
+	
+	
+	@OneToMany(mappedBy="role",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	public Set<User> getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
-	
-	
+
 }
