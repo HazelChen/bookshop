@@ -12,6 +12,11 @@
            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     
+    <task:scheduled-tasks>
+		<task:scheduled ref="inventoryService" method="newAnalyse" cron="0 20 16 * * ?" />
+	</task:scheduled-tasks>
+    
+    
     <!-- actions -->
     <bean id="userBarAction" class="edu.nju.bookHouse.action.UserBarAction">
 	</bean>
@@ -142,6 +147,12 @@
 		</property>
 	</bean>
 	
+	<bean id="inventoryAction" class="edu.nju.bookHouse.action.InventoryAction">
+		<property name="inventoryService">
+			<ref bean="inventoryService" />
+		</property>
+	</bean>
+	
 	<!-- services -->
     <bean id="userService" class="edu.nju.bookHouse.service.UserService">
     	<property name="bankService">
@@ -200,6 +211,17 @@
 		</property>
 	</bean>
 	
+	<bean id="inventoryService" class="edu.nju.bookHouse.service.InventoryService">
+		<property name="bookService">
+			<ref bean="bookService" />
+		</property>
+    	<property name="inventoryDao">
+			<ref bean="inventoryDao" />
+		</property>
+	</bean>
+	
+	
+	
 	<!-- other services -->
     <bean id="dateChanger" class="edu.nju.bookHouse.service.DateChanger">
 	</bean>
@@ -207,6 +229,9 @@
 	
 	<!-- DAOs -->
 	<bean id="daoHelper" class="edu.nju.bookHouse.dao.DaoHelper">
+	</bean>
+	
+	<bean id="sDaoHelper" class="edu.nju.bookHouse.dao.StaticsDaoHelper">
 	</bean>
 	
 	<bean id="userDao" class="edu.nju.bookHouse.dao.UserDao">
@@ -253,6 +278,12 @@
 	<bean id="orderDao" class="edu.nju.bookHouse.dao.OrderDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
+		</property>
+	</bean>
+	
+	<bean id="inventoryDao" class="edu.nju.bookHouse.dao.InventoryDao">
+    	<property name="daoHelper">
+			<ref bean="sDaoHelper" />
 		</property>
 	</bean>
 </beans>

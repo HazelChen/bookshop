@@ -125,6 +125,12 @@
 		<action name="addDiscountCoupons" class="setCouponsAction" method="addDiscountCouponsStandard">
 			<result name="success" type="chain">setCoupons</result>
 		</action>
+		
+		<action name="inventory" class="inventoryAction">
+			<result name="success">inventory.jsp</result>
+		</action>
+		
+		
 	</package>
 	
 	

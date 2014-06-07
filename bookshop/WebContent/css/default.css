@@ -51,3 +51,7 @@ body {
 .container {
 	width:900px;
 }
+
+.hide {
+	display: none
+}
