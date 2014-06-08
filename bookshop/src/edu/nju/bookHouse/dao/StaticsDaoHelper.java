@@ -19,6 +19,8 @@ import org.hibernate.criterion.SimpleExpression;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import com.mysql.jdbc.Statement;
+
 public class StaticsDaoHelper {
 	public List find(String hql) {
 		SessionFactory sessionFactory = buildSessionFactory();
@@ -141,7 +143,9 @@ public class StaticsDaoHelper {
 	public void deleteAll(String modelName) {
 		SessionFactory sessionFactory = buildSessionFactory();
 		Session session = sessionFactory.openSession();
-		session.delete("from " + modelName);
+		String hql = "delete from " + modelName;
+		Query query = session.createQuery(hql);
+		query.executeUpdate();
 		session.close();
 		sessionFactory.close();
 	}

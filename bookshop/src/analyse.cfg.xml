@@ -18,5 +18,9 @@
 	
 		<mapping class="edu.nju.bookHouse.model.AvgInventory"/>   
 		<mapping class="edu.nju.bookHouse.model.BookInventory"/>   
+		<mapping class="edu.nju.bookHouse.model.UserAddress"/>   
+		<mapping class="edu.nju.bookHouse.model.UserAge"/>   
+		<mapping class="edu.nju.bookHouse.model.UserGender"/>   
+		<mapping class="edu.nju.bookHouse.model.UserMonthAdd"/>   
 	</session-factory>
 </hibernate-configuration>

@@ -3,13 +3,9 @@ package edu.nju.bookHouse.service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
-
-
-
 import java.util.Iterator;
 import java.util.List;
 
-import edu.nju.bookHouse.dao.DaoHelper;
 import edu.nju.bookHouse.dao.UserDao;
 import edu.nju.bookHouse.model.Bank;
 import edu.nju.bookHouse.model.CustomerInfo;
@@ -18,7 +14,7 @@ import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.model.UserAddress;
 import edu.nju.bookHouse.model.UserAge;
 import edu.nju.bookHouse.model.UserGender;
-import edu.nju.healthClub.model.MemberAgeStatistics;
+import edu.nju.bookHouse.model.UserMonthAdd;
 
 public class UserService {
 	private BankService bankService;
@@ -111,12 +107,27 @@ public class UserService {
 	}
 	
 	public void analyse() {
-		userDao.removeAllStatics();
+//		userDao.removeAllStatics();
 		analyseAddress();
 		analyseAge();
 		analyseGender();
-		userDao.analuseMonthAdd();
+		analyseMonthAdd();
 	}
+
+	private void analyseMonthAdd() {
+		Calendar nowCalendar = Calendar.getInstance();
+		for (int i = 0; i < 3; i++) {
+			Date maxDate = nowCalendar.getTime();
+			nowCalendar.add(Calendar.MONTH, -1);
+			Date minDate = nowCalendar.getTime();
+			String maxDateString = dateChanger.normalDateToString(maxDate);
+			String minDateString = dateChanger.normalDateToString(minDate);
+			int count = (int) userDao.getRegisterDateCount(minDateString, maxDateString);
+			
+			UserMonthAdd userMonthAdd = new UserMonthAdd("Past " + i + " Months", count);
+			userDao.add(userMonthAdd);
+		}
+	} 
 
 	private void analyseGender() {
 		int maleCount = (int) userDao.getMaleCount();
@@ -126,7 +137,7 @@ public class UserService {
 		double femalePercentage = (femaleCount + 0.0) / total;
 		
 		UserGender maleUserGender = new UserGender("Male", maleCount, malePercentage);
-		UserGender femaleUserGender = new UserGender("Female", femaleCount, femaleCount);
+		UserGender femaleUserGender = new UserGender("Female", femaleCount, femalePercentage);
 		
 		userDao.add(maleUserGender);
 		userDao.add(femaleUserGender);

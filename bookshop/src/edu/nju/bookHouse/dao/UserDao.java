@@ -1,8 +1,5 @@
 package edu.nju.bookHouse.dao;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.criterion.Criterion;
@@ -13,6 +10,7 @@ import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.model.UserAddress;
 import edu.nju.bookHouse.model.UserAge;
 import edu.nju.bookHouse.model.UserGender;
+import edu.nju.bookHouse.model.UserMonthAdd;
 
 public class UserDao {
 	private DaoHelper daoHelper;
@@ -96,4 +94,24 @@ public class UserDao {
 	public void add(UserGender userGender) {
 		sDaoHelper.save(userGender);
 	}
+	
+	public void add(UserMonthAdd userMonthAdd) {
+		sDaoHelper.save(userMonthAdd);
+	}
+
+	public long getRegisterDateCount(String minDateString, String maxDateString) {
+		String hql = "select count(*) from edu.nju.bookHouse.model.CustomerInfo where registerDate>'" + minDateString + "' and registerDate<'" + maxDateString + "'";
+		@SuppressWarnings("unchecked")
+		List<Long> list = daoHelper.find(hql);
+		if (list.size() == 0) {
+			return 0;
+		}
+		return list.get(0);
+	}
+
+	public void setsDaoHelper(StaticsDaoHelper sDaoHelper) {
+		this.sDaoHelper = sDaoHelper;
+	}
+	
+	
 }

@@ -10,6 +10,13 @@ public class UserMonthAdd {
 	private String month;
 	private int count;
 	
+	public UserMonthAdd(){}
+	
+	public UserMonthAdd(String month, int count) {
+		this.month = month;
+		this.count = count;
+	}
+	
 	@Id
 	public String getMonth() {
 		return month;
