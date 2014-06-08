@@ -17,6 +17,7 @@
           			<li><a href='<s:url action="setCoupons"/>'>Set Coupons</a></li>
           			<li><a href='<s:url action="inventory"/>'>Inventory Analyse</a></li>
           			<li><a href='<s:url action="userAnalyse"/>'>User Analyse</a></li>
+          			<li><a href='<s:url action="bookAnalyse"/>'>Book Analyse</a></li>
           		</ul>
           		<div class="navbar-form navbar-right nav navbar-nav" >
           			<s:action name="userBar" executeResult="true"></s:action>

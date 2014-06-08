@@ -3,9 +3,11 @@ package edu.nju.bookHouse.dao;
 import java.util.List;
 
 import edu.nju.bookHouse.model.Book;
+import edu.nju.bookHouse.model.BookAnalyse;
 
 public class BookDao {
 	private DaoHelper daoHelper;
+	private StaticsDaoHelper sDaoHelper;
 	
 	public List<Book> getAll() {
 		@SuppressWarnings("unchecked")
@@ -27,5 +29,19 @@ public class BookDao {
 
 	public void update(Book book) {
 		daoHelper.update(book);
+	}
+	
+	public void setsDaoHelper(StaticsDaoHelper sDaoHelper) {
+		this.sDaoHelper = sDaoHelper;
+	}
+
+	public void add(BookAnalyse bookAnalyse) {
+		sDaoHelper.save(bookAnalyse);
+	}
+
+	public void removeAllAnalyse() {
+		@SuppressWarnings("unchecked")
+		List<BookAnalyse> bookAnalyses = sDaoHelper.findAll(BookAnalyse.class);
+		sDaoHelper.removeAll(bookAnalyses);
 	}
 }

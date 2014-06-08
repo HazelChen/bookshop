@@ -1,14 +1,22 @@
 package edu.nju.bookHouse.service;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import edu.nju.bookHouse.dao.BookDao;
 import edu.nju.bookHouse.model.Book;
+import edu.nju.bookHouse.model.BookAnalyse;
 import edu.nju.bookHouse.model.BookInCart;
+import edu.nju.bookHouse.model.BuyBook;
 import edu.nju.bookHouse.model.Category;
+import edu.nju.bookHouse.model.CategoryAnalyse;
 
 public class BookService {
+	private CategoryService categoryService;
 	private DateChanger dateChanger;
 	private BookDao bookDao;
 	
@@ -49,4 +57,60 @@ public class BookService {
 			bookDao.update(book);
 		}
 	}
+	
+	public void analyse() {
+		bookDao.removeAllAnalyse();
+		
+		List<Book> books = bookDao.getAll();
+		for (Book book : books) {
+			CategoryAnalyse categoryAnalyse = categoryService.findCategoryAnalyse(book.getCategory());
+			BookAnalyse bookAnalyse = new BookAnalyse(book.getISBN(), 
+					book.getName(), book.getPrice(), book.getCustomersCollectedIt().size(), categoryAnalyse);
+			int sales = 0;
+			Iterator<BuyBook> iterator = book.getBuyBooks().iterator();
+			while (iterator.hasNext()) {
+				BuyBook buyBook = iterator.next();
+				sales += buyBook.getCount();
+			}
+			bookAnalyse.setSales(sales);
+			bookDao.add(bookAnalyse);
+		}
+	}
+
+	public void setCategoryService(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+
+	public List<List<BookAnalyse>> findBestBookAnalyse(
+			List<CategoryAnalyse> category) {
+		List<List<BookAnalyse>> list = new ArrayList<List<BookAnalyse>>();
+		for (CategoryAnalyse categoryAnalyse : category) {
+			Set<BookAnalyse> bookAnalyses = categoryAnalyse.getBookAnalyses();
+			List<BookAnalyse> best = findBestFive(bookAnalyses);
+			list.add(best);
+		}
+		return list;
+	}
+	
+	private List<BookAnalyse> findBestFive(Set<BookAnalyse> bookAnalyses) {
+		ArrayList<BookAnalyse> original = new ArrayList<BookAnalyse>(bookAnalyses);
+		java.util.Collections.sort(original, new Comparator<BookAnalyse>() {
+
+			@Override
+			public int compare(BookAnalyse b1, BookAnalyse b2) {
+				return b1.getSales() - b2.getSales();
+			}
+		});
+		
+		ArrayList<BookAnalyse> result = new ArrayList<BookAnalyse>();
+		for(int i = 0; i < 5; i++) {
+			if (i < original.size()) {
+				BookAnalyse bookAnalyse = original.get(i);
+				result.add(bookAnalyse);
+			}
+		}
+		return result;
+	}
+	
+	
 }

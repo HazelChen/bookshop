@@ -133,6 +133,10 @@
 		<action name="userAnalyse" class="userAnalyseAction">
 			<result name="success">userAnalyse.jsp</result>
 		</action>
+		
+		<action name="bookAnalyse" class="bookAnalyseAction">
+			<result name="success">bookAnalyse.jsp</result>
+		</action>
 	</package>
 	
 	

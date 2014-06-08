@@ -1,7 +1,10 @@
 package edu.nju.bookHouse.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +15,17 @@ public class BookAnalyse {
 	private double price;
 	private int sales;
 	private int collections;
+	private CategoryAnalyse categoryAnalyse;
+	
+	public BookAnalyse() {}
+	
+	public BookAnalyse(String isbn, String name, double price, int collections, CategoryAnalyse categoryAnalyse) {
+		this.isbn = isbn;
+		this.name = name;
+		this.price = price;
+		this.collections = collections;
+		this.categoryAnalyse = categoryAnalyse;
+	}
 	
 	@Id
 	public String getIsbn() {
@@ -44,6 +58,17 @@ public class BookAnalyse {
 	public void setCollections(int collections) {
 		this.collections = collections;
 	}
+
+	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn(name="category")
+	public CategoryAnalyse getCategoryAnalyse() {
+		return categoryAnalyse;
+	}
+
+	public void setCategoryAnalyse(CategoryAnalyse categoryAnalyse) {
+		this.categoryAnalyse = categoryAnalyse;
+	}
+	
 	
 	
 

@@ -33,7 +33,7 @@ public class Category {
 		this.category = categoty;
 	}
 
-	@OneToMany(mappedBy="category",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="category",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public Set<Book> getBooks() {
 		return books;
 	}
