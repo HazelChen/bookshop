@@ -15,6 +15,8 @@ import edu.nju.bookHouse.model.UserAddress;
 import edu.nju.bookHouse.model.UserAge;
 import edu.nju.bookHouse.model.UserGender;
 import edu.nju.bookHouse.model.UserMonthAdd;
+import edu.nju.bookHouse.service.linearRegression.DataPoint;
+import edu.nju.bookHouse.service.linearRegression.LinearRegression;
 
 public class UserService {
 	private BankService bankService;
@@ -107,7 +109,7 @@ public class UserService {
 	}
 	
 	public void analyse() {
-//		userDao.removeAllStatics();
+		userDao.removeAllStatics();
 		analyseAddress();
 		analyseAge();
 		analyseGender();
@@ -133,8 +135,8 @@ public class UserService {
 		int maleCount = (int) userDao.getMaleCount();
 		int femaleCount = (int) userDao.getFemaleCount();
 		int total = maleCount + femaleCount;
-		double malePercentage = (maleCount + 0.0) / total;
-		double femalePercentage = (femaleCount + 0.0) / total;
+		double malePercentage = ((int)((maleCount + 0.0) / total * 100)) / 100.0;
+		double femalePercentage = ((int)((femaleCount + 0.0) / total * 100)) / 100.0;
 		
 		UserGender maleUserGender = new UserGender("Male", maleCount, malePercentage);
 		UserGender femaleUserGender = new UserGender("Female", femaleCount, femalePercentage);
@@ -161,7 +163,8 @@ public class UserService {
 		
 		for (UserAge userAge : userAges) {
 			double percentage = (userAge.getCount() + 0.0) / totalCount;
-			userAge.setPercentage(percentage);
+			double percentageTwoDemical = ((int)(percentage * 100)) / 100.0;
+			userAge.setPercentage(percentageTwoDemical);
 			userDao.add(userAge);
 		}
 	}
@@ -179,15 +182,49 @@ public class UserService {
 			long count = (Long)object[1];
 			totalCount += count;
 			UserAddress userAddress = new UserAddress(address, (int)count);
-			userAddresses.add(userAddress);
+			if (userAddresses.contains(userAddress)) {
+				int containsIndex = userAddresses.indexOf(userAddress);
+				UserAddress containsUserAddress = userAddresses.get(containsIndex);
+				int newCount = (int) (containsUserAddress.getCount() + count);
+				containsUserAddress.setCount(newCount);
+			} else {
+				userAddresses.add(userAddress);
+			}
 		}
 		
 		for (UserAddress userAddress : userAddresses) {
 			double percentage = (userAddress.getCount() + 0.0) / totalCount;
-			userAddress.setPercentage(percentage);
+			double percentageTwoDemical = ((int)(percentage * 100)) / 100.0;
+			userAddress.setPercentage(percentageTwoDemical);
 			userDao.add(userAddress);
 		}
 	}
+
+	public List<UserMonthAdd> getAllUserMonthAdds() {
+		return userDao.getAllUserMonthAdds();
+	}
+
+	public List<UserAddress> getAllUserAddresses() {
+		return userDao.getAllUserAddresses();
+	}
+
+	public List<UserGender> getAllUserGenders() {
+		return userDao.getAllUserGenders();
+	}
+
+	public List<UserAge> getAllUserAges() {
+		return userDao.getAllUserAges();
+	}
 	
-	
+	public int getForecastUserAdd(List<UserMonthAdd> userMonthAdds) {
+		int size = userMonthAdds.size();
+		DataPoint[] dataPoints = new DataPoint[size];
+		for (int i = 0; i < size;i++) {
+			UserMonthAdd userMonthAdd = userMonthAdds.get(i);
+			dataPoints[i] = new DataPoint(i, userMonthAdd.getCount());
+		}
+		LinearRegression linearRegression = new LinearRegression(dataPoints);
+		double result = linearRegression.at(size);
+		return (int)result;
+	}
 }

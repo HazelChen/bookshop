@@ -51,10 +51,14 @@ public class UserDao {
 	}
 	
 	public void removeAllStatics() {
-		sDaoHelper.deleteAll("edu.nju.bookHouse.model.UserAddress");
-		sDaoHelper.deleteAll("edu.nju.bookHouse.model.UserAge");
-		sDaoHelper.deleteAll("edu.nju.bookHouse.model.UserGender");
-		sDaoHelper.deleteAll("edu.nju.bookHouse.model.UserMonthAdd");
+		List<?> userAddresses = sDaoHelper.findAll(UserAddress.class);
+		sDaoHelper.removeAll(userAddresses);
+		List<?> userAges = sDaoHelper.findAll(UserAge.class);
+		sDaoHelper.removeAll(userAges);
+		List<?> userGender = sDaoHelper.findAll(UserGender.class);
+		sDaoHelper.removeAll(userGender);
+		List<?> userMonthAdd = sDaoHelper.findAll(UserMonthAdd.class);
+		sDaoHelper.removeAll(userMonthAdd);
 	}
 
 	public long getAgeCount(String minYear, String maxYear) {
@@ -100,7 +104,7 @@ public class UserDao {
 	}
 
 	public long getRegisterDateCount(String minDateString, String maxDateString) {
-		String hql = "select count(*) from edu.nju.bookHouse.model.CustomerInfo where registerDate>'" + minDateString + "' and registerDate<'" + maxDateString + "'";
+		String hql = "select count(*) from edu.nju.bookHouse.model.CustomerInfo where registerDay>'" + minDateString + "' and registerDay<'" + maxDateString + "'";
 		@SuppressWarnings("unchecked")
 		List<Long> list = daoHelper.find(hql);
 		if (list.size() == 0) {
@@ -111,6 +115,30 @@ public class UserDao {
 
 	public void setsDaoHelper(StaticsDaoHelper sDaoHelper) {
 		this.sDaoHelper = sDaoHelper;
+	}
+	
+	public List<UserMonthAdd> getAllUserMonthAdds() {
+		@SuppressWarnings("unchecked")
+		List<UserMonthAdd> monthAdds = sDaoHelper.findAll(UserMonthAdd.class);
+		return monthAdds;
+	}
+
+	public List<UserAddress> getAllUserAddresses() {
+		@SuppressWarnings("unchecked")
+		List<UserAddress> userAddresses = sDaoHelper.findAll(UserAddress.class);
+		return userAddresses;
+	}
+
+	public List<UserGender> getAllUserGenders() {
+		@SuppressWarnings("unchecked")
+		List<UserGender> userGenders = sDaoHelper.findAll(UserGender.class);
+		return userGenders;
+	}
+
+	public List<UserAge> getAllUserAges() {
+		@SuppressWarnings("unchecked")
+		List<UserAge> userAges = sDaoHelper.findAll(UserAge.class);
+		return userAges;
 	}
 	
 	

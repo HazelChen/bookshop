@@ -13,7 +13,7 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     
     <task:scheduled-tasks>
-		<task:scheduled ref="analyseService" method="analyse" cron="0 37 0 * * ?" />
+		<task:scheduled ref="analyseService" method="analyse" cron="0 07 14 * * ?" />
 	</task:scheduled-tasks>
     
     
@@ -150,6 +150,12 @@
 	<bean id="inventoryAction" class="edu.nju.bookHouse.action.InventoryAction">
 		<property name="inventoryService">
 			<ref bean="inventoryService" />
+		</property>
+	</bean>
+	
+	<bean id="userAnalyseAction" class="edu.nju.bookHouse.action.UserAnalyseAction">
+		<property name="userService">
+			<ref bean="userService" />
 		</property>
 	</bean>
 	

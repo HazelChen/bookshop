@@ -130,7 +130,9 @@
 			<result name="success">inventory.jsp</result>
 		</action>
 		
-		
+		<action name="userAnalyse" class="userAnalyseAction">
+			<result name="success">userAnalyse.jsp</result>
+		</action>
 	</package>
 	
 	

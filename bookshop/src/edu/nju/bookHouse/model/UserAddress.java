@@ -40,7 +40,20 @@ public class UserAddress {
 		this.percentage = percentage;
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof UserAddress)) {
+			return false;
+		} else {
+			UserAddress other = (UserAddress)object;
+			return this.address.equals(other.address);
+		}
+	}
 	
+	@Override
+	public int hashCode() {
+		return address.hashCode() + 1;
+	}
 	
 	
 }

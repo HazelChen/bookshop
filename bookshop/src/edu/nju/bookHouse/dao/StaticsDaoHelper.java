@@ -125,6 +125,12 @@ public class StaticsDaoHelper {
 		sessionFactory.close();
 	}
 	
+	public void removeAll(List<?> list) {
+		for (Object object : list) {
+			remove(object);
+		}
+	}
+	
 	public List<?> findMax(Class<?> className, String column) {
 		SessionFactory sessionFactory = buildSessionFactory();
 		Session session = sessionFactory.openSession();
@@ -140,16 +146,6 @@ public class StaticsDaoHelper {
 		return list;
 	}
 	
-	public void deleteAll(String modelName) {
-		SessionFactory sessionFactory = buildSessionFactory();
-		Session session = sessionFactory.openSession();
-		String hql = "delete from " + modelName;
-		Query query = session.createQuery(hql);
-		query.executeUpdate();
-		session.close();
-		sessionFactory.close();
-	}
-
 	private SessionFactory buildSessionFactory() {
 		Configuration config = new Configuration().configure("/analyse.cfg.xml");
 		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
