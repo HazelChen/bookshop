@@ -22,5 +22,7 @@
 		<mapping class="edu.nju.bookHouse.model.UserAge"/>   
 		<mapping class="edu.nju.bookHouse.model.UserGender"/>   
 		<mapping class="edu.nju.bookHouse.model.UserMonthAdd"/>   
+		<mapping class="edu.nju.bookHouse.model.BookAnalyse"/>   
+		<mapping class="edu.nju.bookHouse.model.CategoryAnalyse"/>   
 	</session-factory>
 </hibernate-configuration>
