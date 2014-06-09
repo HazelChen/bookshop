@@ -10,6 +10,7 @@ import edu.nju.bookHouse.model.BuyBook;
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.OrderForm;
 import edu.nju.bookHouse.model.State;
+import edu.nju.bookHouse.vo.OrderPromotionAnalyseVO;
 
 public class OrderService {
 	private OrderDao orderDao;
@@ -61,6 +62,15 @@ public class OrderService {
 		orderForm.setSendDate(today);
 		
 		orderDao.update(orderForm);
+	}
+
+	public OrderPromotionAnalyseVO getPromotionSales() {
+		String mediateDateString = "2014-6-1";
+		int beforeCount = (int) orderDao.getOrderBeforeDate(mediateDateString);
+		int afterCount = (int) orderDao.getOrderAfterDate(mediateDateString);
+		double rate = ((int)((afterCount - beforeCount + 0.0) / beforeCount * 100)) / 100.0;
+		OrderPromotionAnalyseVO vo = new OrderPromotionAnalyseVO(beforeCount, afterCount, rate);
+		return vo;
 	}
 	
 	

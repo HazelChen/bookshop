@@ -137,6 +137,10 @@
 		<action name="bookAnalyse" class="bookAnalyseAction">
 			<result name="success">bookAnalyse.jsp</result>
 		</action>
+		
+		<action name="promotion" class="promotionAction">
+			<result name="success">promotionAnalyse.jsp</result>
+		</action>
 	</package>
 	
 	

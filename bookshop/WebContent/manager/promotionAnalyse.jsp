@@ -28,16 +28,16 @@
 		<table class="table">
 			<tbody>
 				<tr>
-					<td>Pre-sales</td>
+					<th>Pre-sales</th>
 					<td><s:property value="preSales" /></td>
 				</tr>
 				<tr>
-					<td>Current Sales</td>
+					<th>Current Sales</th>
 					<td><s:property value="currentSales" /></td>
 				</tr>
 				<tr>
-					<td>Growth Rate</td>
-					<td><s:property value="growthRate" /></td>
+					<th>Growth Rate</th>
+					<td><s:property value="growthRate" />%</td>
 				</tr>
 			</tbody>
 		</table>
@@ -60,10 +60,10 @@
 					<tbody>
 						<s:iterator value="equalCoupons">
 						<tr>
-							<td><s:property value="value" /></th>
-							<th><s:property value="totalCount" /></th>
-							<th><s:property value="usedCount" /></th>
-							<th><s:property value="usedPercentage" /></th>
+							<td><s:property value="value" /></td>
+							<td><s:property value="totalCount" /></td>
+							<td><s:property value="usedCount" /></td>
+							<td><s:property value="usedPercent" />%</td>
 						</tr>
 						</s:iterator>
 					</tbody>
@@ -83,10 +83,10 @@
 					<tbody>
 						<s:iterator value="discountCoupons">
 						<tr>
-							<td><s:property value="value" /></th>
-							<th><s:property value="totalCount" /></th>
-							<th><s:property value="usedCount" /></th>
-							<th><s:property value="usedPercentage" /></th>
+							<td><s:property value="value" /></td>
+							<td><s:property value="totalCount" /></td>
+							<td><s:property value="usedCount" /></td>
+							<td><s:property value="usedPercent" />%</td>
 						</tr>
 						</s:iterator>
 					</tbody>
@@ -102,6 +102,16 @@
 		<div class="col-xs-6">
 			<div id="discount"></div>
 		</div>
+	</div>
+	
+	<div class="hide" id="equalData">
+		[['Used', <s:property value="equalUsed" />],
+		['Not Used', <s:property value="equalNotUsed" />]]
+	</div>
+	
+	<div class="hide" id="discountData">
+		[['Used', <s:property value="discountUsed" />],
+		['Not Used', <s:property value="discountNotlUsed" />]]
 	</div>
 </body>
 </html>

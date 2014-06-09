@@ -49,4 +49,24 @@ public class OrderDao {
 	public void update(OrderForm orderForm) {
 		daoHelper.updateNotMerge(orderForm);
 	}
+
+	public long getOrderBeforeDate(String mediateDateString) {
+		String hql = "select count(*) from edu.nju.bookHouse.model.OrderForm where confirmDate < '" + mediateDateString + "'";
+		@SuppressWarnings("unchecked")
+		List<Long> list = daoHelper.find(hql);
+		if (list.size() == 0) {
+			return 0;
+		}
+		return list.get(0);
+	}
+	
+	public long getOrderAfterDate(String mediateDateString) {
+		String hql = "select count(*) from edu.nju.bookHouse.model.OrderForm where confirmDate >= '" + mediateDateString + "'";
+		@SuppressWarnings("unchecked")
+		List<Long> list = daoHelper.find(hql);
+		if (list.size() == 0) {
+			return 0;
+		}
+		return list.get(0);
+	}
 }

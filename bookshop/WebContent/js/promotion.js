@@ -1,11 +1,12 @@
 $(function () {
+	var equalData=eval(document.getElementById("equalData").innerHTML);
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'equal',
             type: 'pie'
 		    },
         title :{
-            text:'startAngle=-90 and endAngle=90'
+            text:'Equal Coupons Usage'
         },
         plotOptions: {
             pie: {
@@ -15,25 +16,20 @@ $(function () {
             }
         },
         series: [{
-            data: [
-                ['Firefox',   44.2],
-                ['IE7',       26.6],
-                ['IE6',       20],
-                ['Chrome',    3.1],
-                ['Other',    5.4]
-			]
+            data: equalData
         }]
     });
 });
 
 $(function () {
+	var discountData=eval(document.getElementById("discountData").innerHTML);
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'discount',
             type: 'pie'
 		    },
         title :{
-            text:'startAngle=-90 and endAngle=90'
+            text:'Discount Coupons Usage'
         },
         plotOptions: {
             pie: {
@@ -43,13 +39,7 @@ $(function () {
             }
         },
         series: [{
-            data: [
-                ['Firefox',   44.2],
-                ['IE7',       26.6],
-                ['IE6',       20],
-                ['Chrome',    3.1],
-                ['Other',    5.4]
-			]
+            data: discountData
         }]
     });
 });

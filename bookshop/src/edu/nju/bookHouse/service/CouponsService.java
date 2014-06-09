@@ -41,12 +41,12 @@ public class CouponsService {
 				}
 			}
 			allUsed += used;
-			double percent = ((int)((used + 0.0) / total * 100)) / 100.0;
+			double percent = ((int)((used + 0.0) / total * 1000)) / 10.0;
 			DiscountCouponsAnalyse analyse = new DiscountCouponsAnalyse(standard.getDiscount() + "", 
 					total, used, percent);
 			couponsDao.add(analyse);
 		}
-		double allPercent = ((int)((allUsed + 0.0) / allCount * 100)) / 100.0;
+		double allPercent = ((int)((allUsed + 0.0) / allCount * 1000)) / 10.0;
 		DiscountCouponsAnalyse analyse = new DiscountCouponsAnalyse("total", allCount, allUsed, allPercent);
 		couponsDao.add(analyse);
 	}
@@ -67,12 +67,12 @@ public class CouponsService {
 				}
 			}
 			allUsed += used;
-			double percent = ((int)((used + 0.0) / total * 100)) / 100.0;
+			double percent = ((int)((used + 0.0) / total * 1000)) / 10.0;
 			EqualCouponsAnalyse analyse = new EqualCouponsAnalyse(standard.getEqualValue() + "", 
 					total, used, percent);
 			couponsDao.add(analyse);
 		}
-		double allPercent = ((int)((allUsed + 0.0) / allCount * 100)) / 100.0;
+		double allPercent = ((int)((allUsed + 0.0) / allCount * 1000)) / 10.0;
 		EqualCouponsAnalyse analyse = new EqualCouponsAnalyse("total", allCount, allUsed, allPercent);
 		couponsDao.add(analyse);
 	}
@@ -154,5 +154,13 @@ public class CouponsService {
 		discountCoupons.setCustomerInfo(null);
 		discountCoupons.setOrderForm(orderForm);
 		couponsDao.update(discountCoupons);
+	}
+
+	public List<EqualCouponsAnalyse> getEqualAnalyse() {
+		return couponsDao.getEqualAnalyse();
+	}
+	
+	public List<DiscountCouponsAnalyse> getDiscountAnalyse() {
+		return couponsDao.getDiscountAnalyse();
 	}
 }

@@ -119,4 +119,14 @@ public class CouponsDao {
 	public void setsDaoHelper(StaticsDaoHelper sDaoHelper) {
 		this.sDaoHelper = sDaoHelper;
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<EqualCouponsAnalyse> getEqualAnalyse() {
+		return sDaoHelper.findAll(EqualCouponsAnalyse.class);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DiscountCouponsAnalyse> getDiscountAnalyse() {
+		return sDaoHelper.findAll(DiscountCouponsAnalyse.class);
+	}
 }
