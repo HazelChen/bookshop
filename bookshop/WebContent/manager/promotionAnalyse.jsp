@@ -59,30 +59,40 @@
 					<tbody>
 						<s:iterator value="equalCoupons">
 						<tr>
+							<td><s:property value="value" /></th>
+							<th><s:property value="totalCount" /></th>
+							<th><s:property value="usedCount" /></th>
+							<th><s:property value="usedPercentage" /></th>
+						</tr>
+						</s:iterator>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-xs-6">
+				<h5>Discount Coupons</h5>
+				<table class="table">
+					<thread>
+						<tr>
 							<th>Value</th>
 							<th>Release Number</th>
 							<th>Used Number</th>
 							<th>Used Percentage</th>
 						</tr>
+					</thread>
+					<tbody>
+						<s:iterator value="discountCoupons">
+						<tr>
+							<td><s:property value="value" /></th>
+							<th><s:property value="totalCount" /></th>
+							<th><s:property value="usedCount" /></th>
+							<th><s:property value="usedPercentage" /></th>
+						</tr>
+						</s:iterator>
 					</tbody>
+				</table>
 			</div>
 		</div>
 					
-			<tbody>
-				<tr>
-					<td>Pre-sales</td>
-					<td><s:property value="preSales" /></td>
-				</tr>
-				<tr>
-					<td>Current Sales</td>
-					<td><s:property value="currentSales" /></td>
-				</tr>
-				<tr>
-					<td>Growth Rate</td>
-					<td><s:property value="growthRate" /></td>
-				</tr>
-			</tbody>
-		</table>
 	</div>
 </body>
 </html>
