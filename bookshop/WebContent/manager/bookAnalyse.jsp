@@ -15,7 +15,6 @@
 <script src=<s:url value="/js/highcharts.js" />></script>
 <script src=<s:url value="/js/exporting.js" />></script>
 <script src=<s:url value="/js/highcharts-3d.js" />></script>
-<!-- script src=<s:url value="/js/book3D.js" />></script> -->
 <script type="text/javascript">
 $(function () {
 	var categoryData=eval(document.getElementById("categoryData").innerHTML);

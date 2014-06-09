@@ -8,21 +8,34 @@ import org.hibernate.criterion.SimpleExpression;
 
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.DiscountCoupons;
+import edu.nju.bookHouse.model.DiscountCouponsAnalyse;
 import edu.nju.bookHouse.model.DiscountCouponsStandard;
 import edu.nju.bookHouse.model.EqualCoupons;
+import edu.nju.bookHouse.model.EqualCouponsAnalyse;
 import edu.nju.bookHouse.model.EqualCouponsStandard;
 
 public class CouponsDao {
 	private DaoHelper daoHelper;
+	private StaticsDaoHelper sDaoHelper;
 
 	@SuppressWarnings("unchecked")
-	public List<EqualCouponsStandard> getEqualCoupons() {
+	public List<EqualCouponsStandard> getEqualCouponsStandards() {
 		return daoHelper.findAll(EqualCouponsStandard.class);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<DiscountCouponsStandard> getDiscountCoupons() {
+	public List<DiscountCouponsStandard> getDiscountCouponsStandards() {
 		return daoHelper.findAll(DiscountCouponsStandard.class);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<EqualCoupons> getEqualCoupons() {
+		return daoHelper.findAll(EqualCoupons.class);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DiscountCoupons> getDiscountCoupons() {
+		return daoHelper.findAll(DiscountCoupons.class);
 	}
 
 	public void addEqualCouponsStandard(EqualCouponsStandard standard) {
@@ -31,10 +44,6 @@ public class CouponsDao {
 
 	public void addDiscountCouponsStandard(DiscountCouponsStandard standard) {
 		daoHelper.save(standard);
-	}
-
-	public void setDaoHelper(DaoHelper daoHelper) {
-		this.daoHelper = daoHelper;
 	}
 
 	public EqualCouponsStandard getEqualCouponsStandard(int equalId) {
@@ -83,5 +92,31 @@ public class CouponsDao {
 	
 	public void update(DiscountCoupons discountCoupons) {
 		daoHelper.updateNotMerge(discountCoupons);
+	}
+
+	@SuppressWarnings("unchecked")
+	public void removeAllAnalyse() {
+		List<EqualCouponsAnalyse> equalCouponsAnalyses = sDaoHelper.findAll(EqualCouponsAnalyse.class);
+		sDaoHelper.removeAll(equalCouponsAnalyses);
+		List<DiscountCouponsAnalyse> discountCouponsAnalyses = sDaoHelper.findAll(DiscountCouponsAnalyse.class);
+		sDaoHelper.removeAll(discountCouponsAnalyses);
+	}
+	
+	
+	
+	public void setDaoHelper(DaoHelper daoHelper) {
+		this.daoHelper = daoHelper;
+	}
+
+	public void add(EqualCouponsAnalyse analyse) {
+		sDaoHelper.save(analyse);
+	}
+	
+	public void add(DiscountCouponsAnalyse analyse) {
+		sDaoHelper.save(analyse);
+	}
+
+	public void setsDaoHelper(StaticsDaoHelper sDaoHelper) {
+		this.sDaoHelper = sDaoHelper;
 	}
 }

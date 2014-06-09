@@ -24,5 +24,7 @@
 		<mapping class="edu.nju.bookHouse.model.UserMonthAdd"/>   
 		<mapping class="edu.nju.bookHouse.model.BookAnalyse"/>   
 		<mapping class="edu.nju.bookHouse.model.CategoryAnalyse"/>   
+		<mapping class="edu.nju.bookHouse.model.EqualCouponsAnalyse"/>   
+		<mapping class="edu.nju.bookHouse.model.DiscountCouponsAnalyse"/>   
 	</session-factory>
 </hibernate-configuration>

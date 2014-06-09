@@ -13,7 +13,7 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
     
     <task:scheduled-tasks>
-		<task:scheduled ref="analyseService" method="analyse" cron="0 23 22 * * ?" />
+		<task:scheduled ref="analyseService" method="analyse" cron="0 37 21 * * ?" />
 	</task:scheduled-tasks>
     
     
@@ -251,6 +251,9 @@
     	<property name="bookService">
 			<ref bean="bookService" />
 		</property>
+		<property name="couponsService">
+			<ref bean="couponsService" />
+		</property>
 	</bean>
 	
 	
@@ -314,6 +317,9 @@
 	<bean id="couponsDao" class="edu.nju.bookHouse.dao.CouponsDao">
     	<property name="daoHelper">
 			<ref bean="daoHelper" />
+		</property>
+		<property name="sDaoHelper">
+			<ref bean="sDaoHelper" />
 		</property>
 	</bean>
 	
