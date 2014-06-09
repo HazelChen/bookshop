@@ -18,7 +18,7 @@
 <body>
 	<s:include value="navigater.jsp" />
 	
-	<div class="contianer">
+	<div class="container">
 		<h1>Promotion Analyse</h1>
 	</div>
 	
