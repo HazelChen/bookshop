@@ -52,4 +52,5 @@ public class UserAnalyseAction extends BaseAction{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
+
 }

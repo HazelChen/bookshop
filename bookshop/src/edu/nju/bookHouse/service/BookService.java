@@ -94,11 +94,12 @@ public class BookService {
 	
 	private List<BookAnalyse> findBestFive(Set<BookAnalyse> bookAnalyses) {
 		ArrayList<BookAnalyse> original = new ArrayList<BookAnalyse>(bookAnalyses);
+		//倒序排序
 		java.util.Collections.sort(original, new Comparator<BookAnalyse>() {
 
 			@Override
 			public int compare(BookAnalyse b1, BookAnalyse b2) {
-				return b1.getSales() - b2.getSales();
+				return b2.getSales() - b1.getSales();
 			}
 		});
 		
@@ -110,6 +111,10 @@ public class BookService {
 			}
 		}
 		return result;
+	}
+
+	public List<BookAnalyse> findAllBookAnalyses() {
+		return bookDao.findAllBookAnalyses();
 	}
 	
 	

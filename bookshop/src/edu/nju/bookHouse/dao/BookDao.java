@@ -44,4 +44,9 @@ public class BookDao {
 		List<BookAnalyse> bookAnalyses = sDaoHelper.findAll(BookAnalyse.class);
 		sDaoHelper.removeAll(bookAnalyses);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<BookAnalyse> findAllBookAnalyses() {
+		return sDaoHelper.findAll(BookAnalyse.class);
+	}
 }
