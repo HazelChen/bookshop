@@ -14,6 +14,7 @@
 <script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
 <script src=<s:url value="/js/highcharts.js" />></script>
 <script src=<s:url value="/js/exporting.js" />></script>
+<script src=<s:url value="/js/promotion.js" />></script>
 </head>
 <body>
 	<s:include value="navigater.jsp" />
