@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `bookhouse` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `bookhouse`;
--- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
 -- Host: localhost    Database: bookhouse
 -- ------------------------------------------------------
--- Server version	5.6.16-enterprise-commercial-advanced
+-- Server version	5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -452,14 +452,14 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-09 22:03:15
+-- Dump completed on 2014-06-09 23:55:56
 CREATE DATABASE  IF NOT EXISTS `bookhousestatistics` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `bookhousestatistics`;
--- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
 -- Host: localhost    Database: bookhousestatistics
 -- ------------------------------------------------------
--- Server version	5.6.16-enterprise-commercial-advanced
+-- Server version	5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -608,7 +608,7 @@ CREATE TABLE `discountcouponsanalyse` (
 
 LOCK TABLES `discountcouponsanalyse` WRITE;
 /*!40000 ALTER TABLE `discountcouponsanalyse` DISABLE KEYS */;
-INSERT INTO `discountcouponsanalyse` VALUES ('0.8',2,1,0.5),('0.9',4,1,0.25),('total',6,2,0.33);
+INSERT INTO `discountcouponsanalyse` VALUES ('0.8',2,1,50),('0.9',4,1,25),('total',6,2,33.3);
 /*!40000 ALTER TABLE `discountcouponsanalyse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,7 +634,7 @@ CREATE TABLE `equalcouponseanalyse` (
 
 LOCK TABLES `equalcouponseanalyse` WRITE;
 /*!40000 ALTER TABLE `equalcouponseanalyse` DISABLE KEYS */;
-INSERT INTO `equalcouponseanalyse` VALUES ('10.0',8,5,0.62),('20.0',1,1,1),('total',9,6,0.66);
+INSERT INTO `equalcouponseanalyse` VALUES ('10.0',8,5,62.5),('20.0',1,1,100),('total',9,6,66.6);
 /*!40000 ALTER TABLE `equalcouponseanalyse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -746,4 +746,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-09 22:03:15
+-- Dump completed on 2014-06-09 23:55:58
