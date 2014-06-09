@@ -92,7 +92,15 @@
 				</table>
 			</div>
 		</div>
-					
+	</div>
+	
+	<div class="container">
+		<div class="col-xs-6">
+			<div id="equal"></div>
+		</div>
+		<div class="col-xs-6">
+			<div id="discount"></div>
+		</div>
 	</div>
 </body>
 </html>
