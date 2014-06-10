@@ -9,11 +9,11 @@ public class AnalyseService {
 	private OrderService orderService;
 	
 	public void analyse() {
-//		inventoryService.newAnalyse();
-//		userService.analyse();
-//		categoryService.analyse();
-//		bookService.analyse();
-//		couponsService.analyse();
+		inventoryService.newAnalyse();
+		userService.analyse();
+		categoryService.analyse();
+		bookService.analyse();
+		couponsService.analyse();
 		orderService.analyse();
 	}
 

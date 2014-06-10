@@ -32,7 +32,7 @@ public class ManagerFilter extends HttpServlet implements javax.servlet.Filter{
 		String url=request.getServletPath();
 		
 		if (!url.contains("css") && !url.contains("js") && !url.contains("image")
-				&& url.contains("manager") && !url.contains("login")) {
+				&& url.contains("manager") && !url.contains("ogin")) {
 			User admin = (User) session.getAttribute("manager");
 			if (admin == null) {
 				response.sendRedirect(contextPath+"/manager/login.jsp"); 

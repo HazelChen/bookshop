@@ -32,7 +32,7 @@ public class AdminFilter extends HttpServlet implements javax.servlet.Filter{
 		String url=request.getServletPath();
 		
 		if (!url.contains("css") && !url.contains("js")  && !url.contains("image")
-				&& url.contains("admin") && !url.contains("login")) {
+				&& !url.contains("manager") && url.contains("admin") && !url.contains("ogin")) {
 			User admin = (User) session.getAttribute("admin");
 			if (admin == null) {
 				response.sendRedirect(contextPath+"/admin/login.jsp"); 

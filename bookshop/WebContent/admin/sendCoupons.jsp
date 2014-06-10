@@ -20,7 +20,7 @@
 
         });
     </script>
-<title>Send Coupons</title>
+<title>Send Coupons-Book House</title>
 </head>
 <body>
 	<s:include value="navigater.jsp" />

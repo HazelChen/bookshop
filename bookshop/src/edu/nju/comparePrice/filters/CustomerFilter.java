@@ -31,8 +31,8 @@ public class CustomerFilter  extends HttpServlet implements javax.servlet.Filter
 		String contextPath=request.getContextPath();
 		String url=request.getServletPath();
 		
-		if (!url.contains("css") && !url.contains("js")  && !url.contains("image") 
-				&& !url.contains("login")) {
+		if (!url.contains("css") && !url.contains("js")  && !url.contains("image")
+				&& !url.contains("admin") && !url.contains("manager") && !url.contains("ogin")) {
 			User admin = (User) session.getAttribute("customer");
 			if (admin == null) {
 				response.sendRedirect(contextPath+"/login.jsp"); 

@@ -15,9 +15,9 @@
 	<script src=<s:url value="/js/bootstrap.min.js" /> type="text/javascript"></script>
 	<script src=<s:url value="/js/bootstrap-select.min.js" /> type="text/javascript"></script>
 	<script type="text/javascript">
-	$('#affix').affix({
+	$('#myAffix').affix({
 	    offset: {
-	      top: 100
+	      top: 200
 	    , bottom: function () {
 	        return (this.bottom = $('.bs-footer').outerHeight(true))
 	      }
@@ -29,9 +29,8 @@
 	<s:include value="navigater.jsp" />
 	
 	<div class="container">
-		<div id="affix" data-spy="affix" data-offset-top="200">
 			<div class="col-xs-3">
-				<ul class="nav nav-tabs nav-stacked affix" data-spy="affix">
+				<ul class="nav nav-tabs nav-stacked affix" id="myAffix" data-spy="affix">
 					<li><a href="#one">Orders Comfired</a></li>
 					<li><a href="#two">Orders Distributed</a></li>
 					<li><a href="#three">Orders Sended</a></li>
