@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.List;
 
 import edu.nju.bookHouse.dao.InventoryDao;
-import edu.nju.bookHouse.model.AvgInventory;
 import edu.nju.bookHouse.model.Book;
-import edu.nju.bookHouse.model.BookInventory;
+import edu.nju.bookHouse.model.analyse.AvgInventory;
+import edu.nju.bookHouse.model.analyse.BookInventory;
 
 public class InventoryService {
 	private BookService bookService;

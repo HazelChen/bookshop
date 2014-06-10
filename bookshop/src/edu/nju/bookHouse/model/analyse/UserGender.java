@@ -1,32 +1,30 @@
-package edu.nju.bookHouse.model;
+package edu.nju.bookHouse.model.analyse;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="userage")
-public class UserAge {
-	private String ageRange;
+@Table(name="userGender")
+public class UserGender {
+	private String gender;
 	private int count;
 	private double percentage;
 	
-	public UserAge() {
-	}
+	public UserGender(){}
 	
-	
-	public UserAge(String ageRange, int count) {
-		this.ageRange = ageRange;
+	public UserGender(String gender, int count, double percentage) {
+		this.gender = gender;
 		this.count = count;
+		this.percentage = percentage;
 	}
-	
 	
 	@Id
-	public String getAgeRange() {
-		return ageRange;
+	public String getGender() {
+		return gender;
 	}
-	public void setAgeRange(String ageRange) {
-		this.ageRange = ageRange;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public int getCount() {
 		return count;

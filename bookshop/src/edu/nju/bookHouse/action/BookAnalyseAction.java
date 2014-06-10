@@ -2,8 +2,8 @@ package edu.nju.bookHouse.action;
 
 import java.util.List;
 
-import edu.nju.bookHouse.model.BookAnalyse;
-import edu.nju.bookHouse.model.CategoryAnalyse;
+import edu.nju.bookHouse.model.analyse.BookAnalyse;
+import edu.nju.bookHouse.model.analyse.CategoryAnalyse;
 import edu.nju.bookHouse.service.BookService;
 import edu.nju.bookHouse.service.CategoryService;
 

@@ -2,8 +2,8 @@ package edu.nju.bookHouse.action;
 
 import java.util.List;
 
-import edu.nju.bookHouse.model.DiscountCouponsAnalyse;
-import edu.nju.bookHouse.model.EqualCouponsAnalyse;
+import edu.nju.bookHouse.model.analyse.DiscountCouponsAnalyse;
+import edu.nju.bookHouse.model.analyse.EqualCouponsAnalyse;
 import edu.nju.bookHouse.service.CouponsService;
 import edu.nju.bookHouse.service.OrderService;
 import edu.nju.bookHouse.vo.OrderPromotionAnalyseVO;

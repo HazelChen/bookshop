@@ -8,11 +8,11 @@ import org.hibernate.criterion.SimpleExpression;
 
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.DiscountCoupons;
-import edu.nju.bookHouse.model.DiscountCouponsAnalyse;
 import edu.nju.bookHouse.model.DiscountCouponsStandard;
 import edu.nju.bookHouse.model.EqualCoupons;
-import edu.nju.bookHouse.model.EqualCouponsAnalyse;
 import edu.nju.bookHouse.model.EqualCouponsStandard;
+import edu.nju.bookHouse.model.analyse.DiscountCouponsAnalyse;
+import edu.nju.bookHouse.model.analyse.EqualCouponsAnalyse;
 
 public class CouponsDao {
 	private DaoHelper daoHelper;

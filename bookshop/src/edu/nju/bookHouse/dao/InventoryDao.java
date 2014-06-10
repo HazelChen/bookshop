@@ -6,8 +6,8 @@ import java.util.List;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 
-import edu.nju.bookHouse.model.AvgInventory;
-import edu.nju.bookHouse.model.BookInventory;
+import edu.nju.bookHouse.model.analyse.AvgInventory;
+import edu.nju.bookHouse.model.analyse.BookInventory;
 
 public class InventoryDao {
 	private StaticsDaoHelper daoHelper;

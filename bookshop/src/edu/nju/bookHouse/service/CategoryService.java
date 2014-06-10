@@ -8,7 +8,7 @@ import edu.nju.bookHouse.dao.CategoryDao;
 import edu.nju.bookHouse.model.Book;
 import edu.nju.bookHouse.model.BuyBook;
 import edu.nju.bookHouse.model.Category;
-import edu.nju.bookHouse.model.CategoryAnalyse;
+import edu.nju.bookHouse.model.analyse.CategoryAnalyse;
 
 public class CategoryService {
 	private CategoryDao categoryDao;

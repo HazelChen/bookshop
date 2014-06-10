@@ -1,4 +1,4 @@
-package edu.nju.bookHouse.model;
+package edu.nju.bookHouse.model.analyse;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

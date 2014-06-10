@@ -3,7 +3,7 @@ package edu.nju.bookHouse.dao;
 import java.util.List;
 
 import edu.nju.bookHouse.model.Book;
-import edu.nju.bookHouse.model.BookAnalyse;
+import edu.nju.bookHouse.model.analyse.BookAnalyse;
 
 public class BookDao {
 	private DaoHelper daoHelper;

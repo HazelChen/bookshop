@@ -4,6 +4,8 @@ import edu.nju.bookHouse.model.User;
 import edu.nju.bookHouse.service.UserService;
 
 public class ManagerLoginAction extends BaseAction{
+	private static final long serialVersionUID = 4297278459541913808L;
+	
 	private UserService userService;
 	
 	@Override

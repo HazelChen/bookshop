@@ -2,10 +2,10 @@ package edu.nju.bookHouse.action;
 
 import java.util.List;
 
-import edu.nju.bookHouse.model.UserAddress;
-import edu.nju.bookHouse.model.UserAge;
-import edu.nju.bookHouse.model.UserGender;
-import edu.nju.bookHouse.model.UserMonthAdd;
+import edu.nju.bookHouse.model.analyse.UserAddress;
+import edu.nju.bookHouse.model.analyse.UserAge;
+import edu.nju.bookHouse.model.analyse.UserGender;
+import edu.nju.bookHouse.model.analyse.UserMonthAdd;
 import edu.nju.bookHouse.service.UserService;
 
 public class UserAnalyseAction extends BaseAction{

@@ -6,13 +6,15 @@ public class AnalyseService {
 	private BookService bookService;
 	private CategoryService categoryService;
 	private CouponsService couponsService;
+	private OrderService orderService;
 	
 	public void analyse() {
 //		inventoryService.newAnalyse();
-		userService.analyse();
-		categoryService.analyse();
-		bookService.analyse();
-		couponsService.analyse();
+//		userService.analyse();
+//		categoryService.analyse();
+//		bookService.analyse();
+//		couponsService.analyse();
+		orderService.analyse();
 	}
 
 	public void setInventoryService(InventoryService inventoryService) {
@@ -33,5 +35,9 @@ public class AnalyseService {
 
 	public void setCouponsService(CouponsService couponsService) {
 		this.couponsService = couponsService;
+	}
+
+	public void setOrderService(OrderService orderService) {
+		this.orderService = orderService;
 	}
 }

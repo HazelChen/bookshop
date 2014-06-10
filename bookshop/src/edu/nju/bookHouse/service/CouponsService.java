@@ -6,12 +6,12 @@ import java.util.List;
 import edu.nju.bookHouse.dao.CouponsDao;
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.DiscountCoupons;
-import edu.nju.bookHouse.model.DiscountCouponsAnalyse;
 import edu.nju.bookHouse.model.DiscountCouponsStandard;
 import edu.nju.bookHouse.model.EqualCoupons;
-import edu.nju.bookHouse.model.EqualCouponsAnalyse;
 import edu.nju.bookHouse.model.EqualCouponsStandard;
 import edu.nju.bookHouse.model.OrderForm;
+import edu.nju.bookHouse.model.analyse.DiscountCouponsAnalyse;
+import edu.nju.bookHouse.model.analyse.EqualCouponsAnalyse;
 
 public class CouponsService {
 	private static final String EQUAL_NOT_ADDED_STRING = "equal coupons";

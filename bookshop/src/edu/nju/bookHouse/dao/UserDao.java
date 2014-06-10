@@ -7,10 +7,10 @@ import org.hibernate.criterion.Restrictions;
 
 import edu.nju.bookHouse.model.CustomerInfo;
 import edu.nju.bookHouse.model.User;
-import edu.nju.bookHouse.model.UserAddress;
-import edu.nju.bookHouse.model.UserAge;
-import edu.nju.bookHouse.model.UserGender;
-import edu.nju.bookHouse.model.UserMonthAdd;
+import edu.nju.bookHouse.model.analyse.UserAddress;
+import edu.nju.bookHouse.model.analyse.UserAge;
+import edu.nju.bookHouse.model.analyse.UserGender;
+import edu.nju.bookHouse.model.analyse.UserMonthAdd;
 
 public class UserDao {
 	private DaoHelper daoHelper;

@@ -2,8 +2,8 @@ package edu.nju.bookHouse.action;
 
 import java.util.List;
 
-import edu.nju.bookHouse.model.AvgInventory;
-import edu.nju.bookHouse.model.BookInventory;
+import edu.nju.bookHouse.model.analyse.AvgInventory;
+import edu.nju.bookHouse.model.analyse.BookInventory;
 import edu.nju.bookHouse.service.InventoryService;
 
 public class InventoryAction extends BaseAction{

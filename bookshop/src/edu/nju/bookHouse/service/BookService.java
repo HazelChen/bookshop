@@ -9,11 +9,11 @@ import java.util.Set;
 
 import edu.nju.bookHouse.dao.BookDao;
 import edu.nju.bookHouse.model.Book;
-import edu.nju.bookHouse.model.BookAnalyse;
 import edu.nju.bookHouse.model.BookInCart;
 import edu.nju.bookHouse.model.BuyBook;
 import edu.nju.bookHouse.model.Category;
-import edu.nju.bookHouse.model.CategoryAnalyse;
+import edu.nju.bookHouse.model.analyse.BookAnalyse;
+import edu.nju.bookHouse.model.analyse.CategoryAnalyse;
 
 public class BookService {
 	private CategoryService categoryService;
